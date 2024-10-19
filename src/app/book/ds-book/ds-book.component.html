@@ -1,0 +1,47 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="themsach()">
+  Thêm sách mới
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{titilemodal}}</h5>
+        <button type="button" class="close" data-dismiss="modal" (click)="dong()">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-them-sua-book [book]="book" *ngIf="dangThemSua"></app-them-sua-book>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr> <!-- Thêm thẻ <tr> bao quanh các <th> -->
+      <th>Mã sách</th>
+      <th>Tiêu đề sách</th>
+      <th>Mô tả</th>
+      <th>Giá</th>
+      <th>Tùy chọn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bk of DSSach">
+      <td>{{bk.id}}</td>
+      <td>{{bk.title}}</td>
+      <td>{{bk.description}}</td>
+      <td>{{bk.price}}</td>
+      <td>
+        <button type="button" class="btn btn-primary" style="margin-right: 2px;" (click)="chitietsach(bk)"
+          data-toggle="modal" data-target="#exampleModal">Sửa</button>
+        <button type="button" class="btn btn-danger" (click)="xoasach(bk)">Xóa</button>
+      </td>
+    </tr> <!-- Thêm thẻ </tr> để đóng phần tử -->
+  </tbody>
+</table>

@@ -1,0 +1,11 @@
+<p style="margin: 5px 0px;">Tiêu đề</p>
+<input class="form-control" [(ngModel)]="Sach.title">
+<p style="margin: 5px 0px;">Mô tả</p>
+<input class="form-control" [(ngModel)]="Sach.description">
+<p style="margin: 5px 0px;">Giá tiền</p>
+<input class="form-control" [(ngModel)]="Sach.price">
+
+<button type="button" class="btn btn-dark" style="margin: 10px 0px;" (click)="themsach()" *ngIf="!book">Thêm
+  sách</button>
+<button type="button" class="btn btn-dark" style="margin: 10px 0px;" (click)="suasach()" *ngIf="book">Sửa
+  sách</button>
