@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar">
+        <ul class="tab-list">
+            <li><a routerLink="/admin-customer">Quản lý Khách hàng</a></li>
+        </ul>
+    </div>
+    <div class="customer-list">
+        <div *ngIf="layTTCT">
+            <h1>Thông tin khách hàng</h1>
+            <form>
+              <div>
+                <label for="id">ID Khách hàng:</label>
+                <input id="id" type="text" [value]="layTTCT.Id" readonly>
+              </div>
+              <div>
+                <label for="userName">Tên:</label>
+                <input id="userName" type="text" [value]="layTTCT.UserName" readonly>
+              </div>
+              <div>
+                <label for="email">Email:</label>
+                <input id="email" type="email" [value]="layTTCT.Email" readonly>
+              </div>
+              <div>
+                <label for="phone">Số điện thoại:</label>
+                <input id="phone" type="text" [value]="layTTCT.Phone" readonly>
+              </div>
+              <div>
+                <label for="address">Địa Chỉ:</label>
+                <input id="address" type="text" [value]="layTTCT.Address" readonly>
+              </div>
+              <div>
+                <label for="password">Mật Khẩu:</label>
+                <input id="password" type="password" [value]="layTTCT.Password" readonly>
+              </div>
+            </form>
+          </div>
+          
+          <!-- If no customer data is found -->
+          <div *ngIf="!layTTCT || Object.keys(layTTCT).length === 0">
+            <p>Không tìm thấy thông tin khách hàng.</p>
+          </div>          
+    </div>
+</body>
+</html>
+

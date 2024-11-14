@@ -6,6 +6,53 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="navbar">
+        <ul class="tab-list">
+            <li><a routerLink="/admin-customer">Quản lý Khách hàng</a></li>
+        </ul>
+    </div>
+    <div class="customer-list">
+        <h1>Danh sách khách hàng</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Khách hàng</th>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa Chỉ</th>
+                    <th>Mật Khẩu</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Vòng lặp ngFor cho từng hàng khách hàng -->
+                <tr *ngFor="let customers of laythongtinn">
+                    <td>{{ customers.Id }}</td>
+                    <td>{{ customers.UserName }}</td>
+                    <td>{{ customers.Email }}</td>
+                    <td>{{ customers.Phone }}</td>
+                    <td>{{ customers.Address }}</td>
+                    <td>{{ customers.Password }}</td>
+                    <td>
+                        
+                        <button routerLink="/order-history">Xem LSDH</button>
+                        <button routerLink="/edit-customer">Sửa TK</button>
+                        <button routerLink="/view-customer">Xóa KH</button>
+                        <!-- <button (click)="deleteCustomer(customer)">Xóa TK</button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
+<!-- <tr *ngFor="let customers of laythongtinn">
+    <h2>Thông Tin Chi Tiết Khách Hàng</h2>
+    <p><strong>ID Khách Hàng:</strong> {{ customers.Id }}</p>
+    <p><strong>Tên:</strong> {{ customers.UserName }}</p>
+    <p><strong>Email:</strong> {{ customers.Email }}</p>
+    <p><strong>Số Điện Thoại:</strong> {{ customers.Phone }}</p>
+    <p><strong>Địa Chỉ:</strong> {{ customers.Address }}</p>
+    <p><strong>Mật Khẩu:</strong> {{ customers.Password }}</p> -->

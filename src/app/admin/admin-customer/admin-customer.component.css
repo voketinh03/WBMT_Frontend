@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.page-title {
+    color: brown;
+    font-size: 36px;
+    text-align: center;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.admin-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.customer-menu {
+    width: 25%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+}
+
+.customer-menu h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.customer-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.customer-menu li {
+    margin-bottom: 10px;
+}
+
+.customer-menu a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.customer-menu a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Container for customer cards */
+.customer-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 75%;
+}
+
+/* Customer Info Card */
+.customer-info-card {
+    flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+    background-color: #e0f7fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.customer-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.customer-info-card p {
+    margin: 8px 0;
+    color: #333;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.button-group button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-group button:hover {
+    background-color: #0056b3;
+}

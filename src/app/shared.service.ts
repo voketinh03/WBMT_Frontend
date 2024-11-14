@@ -1,21 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { Observable,throwError } from 'rxjs';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class SharedService {
-//     readonly APIUrl = "https://localhost:7044/api";
-//   constructor( private https:HttpClient) { }
-//   dangnhap(val: any):Observable<any[]>{
-//     return this.https.post<any>(this.APIUrl+'/UserModels/dangnhap', val);
-//   }
-// }
-// import { Injectable } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,11 +18,28 @@ export class SharedService {
   dangKy(dky: any):Observable<any[]>{
     return this.https.post<any>(this.apiUrl+'/ReUsersModels/dangky', dky);
   }
-  
-    // dangKy(registrationData: any):Observable<any[]>{
-    //   return this.https.post<any>(this.apiUrl+'/UserModels/dangky', registrationData);
-  // dangky(credentials: any): Observable<any> {
-  //   return this.https.post<any>(`${this.APIUrl}/UserModels`, credentials);
+  // GetTT(laythongtin: any):Observable<any[]>{
+  //   return this.https.post<any>(this.apiUrl+'/CustomerModels/GetThongTin', laythongtin);
   // }
+  GetTT(): Observable<any> {
+   // return this.https.get<any>('${this.apiUrl}/CustomerModels/GetThongTin');
+   return this.https.get<any>(this.apiUrl+'/CustomerModels/GetThongTin');
   }
+  GetTTKH(): Observable<any> {
+    // return this.https.get<any>('${this.apiUrl}/CustomerModels/GetThongTin');
+    return this.https.get<any>(this.apiUrl+'/CustomerModels/GetTTCT');
+   }
+
+   GetLSDH(): Observable<any> {
+    // return this.https.get<any>('${this.apiUrl}/CustomerModels/GetThongTin');
+    return this.https.get<any>(this.apiUrl+'/OrderHistoryModels/Lichsudonhang');
+   }
+
+   GetTTCT(id: string): Observable<any> {
+    // return this.https.get<any>('${this.apiUrl}/CustomerModels/GetThongTin');
+    // return this.https.get<any>(this.apiUrl+'/CustomerModels/GetTTCTid/');
+    return this.https.get<any>('${this.apiUrl}/CustomerModels/GetTTCT/${id}');
+   }
+
+}
 
