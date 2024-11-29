@@ -1,26 +1,126 @@
-.navbar {
-    background-color: #333;
-    color: white;
-    padding: 10px;
+  /* General styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
   }
   
-  .tab-list {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cce1ff;
+    padding: 10px 20px;
+  }
+  
+  header .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  header .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  header .header-center input {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  header .header-center button {
+    padding: 5px 10px;
+  }
+  
+  header .header-right button {
+    margin-left: 10px;
+    padding: 5px 10px;
+  }
+  
+  main {
+    display: flex;
+    margin: 20px;
+  }
+  
+  aside {
+    flex: 1;
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  aside ul {
     list-style: none;
     padding: 0;
-    display: flex;
   }
   
-  .tab-list li {
-    margin-right: 20px;
+  aside ul li {
+    margin: 10px 0;
   }
   
-  .tab-list a {
+  aside ul li a {
     text-decoration: none;
-    color: white;
+    color: blue;
   }
   
-  .tab-list a:hover {
-    text-decoration: underline;
-    color: #ffcc00;
+  section {
+    flex: 3;
+    padding: 20px;
+  }
+  
+  section h1 {
+    color: #3388ff;
+  }
+  
+  form label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .form-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  form button {
+    padding: 10px 20px;
+  }
+  
+  footer {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  footer .social a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  footer .social-icon img {
+    width: 32px; /* Kích thước biểu tượng */
+    height: 32px;
+    margin-right: 10px; /* Khoảng cách giữa các biểu tượng */
+    vertical-align: middle; /* Căn giữa với dòng chữ hoặc nội dung khác */
+  }
+  
+  
+  footer .social-icon {
+    text-decoration: none;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
   }
   

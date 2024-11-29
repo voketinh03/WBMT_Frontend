@@ -6,6 +6,7 @@
     <title>Order History</title>
 </head>
 <body>
+   <app-header></app-header>
     <div class="navbar">
         <ul class="tab-list">
             <li><a routerLink="/admin-customer">Quản lý Khách hàng</a></li>
@@ -19,6 +20,7 @@
                     <tr>
                         <th>ID đơn hàng</th>
                         <th>ID khách hàng</th>
+                        <th>Ngày đặt hàng</th>
                         <th>Tên sản phẩm</th>
                         <th>Số Lượng</th>
                         <th>Tổng</th>
@@ -29,6 +31,7 @@
                     <tr *ngFor="let history of laydh">
                         <td><strong>{{ history.IdOrder }}</strong></td>
                         <td><strong>{{ history.Id }}</strong></td>
+                        <td><strong>{{ history.OrderDate }}</strong></td>
                         <td><strong>{{ history.ProductName }}</strong></td>
                         <td><strong>{{ history.Quantity }}</strong></td>
                         <td><strong>{{ history.Price }}</strong></td>
@@ -37,7 +40,12 @@
                 </tbody>
                 
             </table>
+            
+        </div>
+        <div class="form-actions">
+            <a class="btn-back" [routerLink]="['/admin-customer']">Quay Lại</a>
         </div>
     </div>
+   <app-footer></app-footer>
 </body>
 </html>

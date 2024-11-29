@@ -1,0 +1,108 @@
+/* Đặt kiểu chữ cho toàn bộ trang */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+/* Kiểu cho tiêu đề chính */
+.page-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 20px 0;
+}
+
+/* Định dạng chung cho container */
+.admin-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Định dạng menu sản phẩm bên trái */
+.product-menu {
+    width: 25%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.product-menu h2 {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.product-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-menu li {
+    margin: 10px 0;
+}
+
+.product-menu a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.product-menu a:hover {
+    color: #0056b3;
+}
+
+/* Định dạng thẻ thông tin sản phẩm bên phải */
+.product-cards {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-info-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    box-sizing: border-box;
+}
+
+.product-info-card p {
+    margin: 8px 0;
+    color: #333;
+}
+
+/* Định dạng nhóm nút */
+.button-group {
+    margin-top: 10px;
+}
+
+.button-group button {
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.button-group button:hover {
+    background-color: #0056b3;
+}
+
+/* Định dạng cho nút "Xóa" với màu khác */
+.button-group button:last-child {
+    background-color: #dc3545;
+}
+
+.button-group button:last-child:hover {
+    background-color: #c82333;
+}

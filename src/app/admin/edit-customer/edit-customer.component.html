@@ -3,45 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Customer Management</title>
 </head>
 <body>
-   <div class="container"> 
-    <div class="form signup">
-        <h2>Sửa Thông Tin</h2>
-        <div class="inputBox">
-            <input type="text" required="required" /> 
-            <i class="fa fa-user"></i>
-            <span>Username</span>
-        </div>
-        <div class="inputBox"> 
-            <input type="text" required="required" />
-            <i class="fa fa-envelope"></i>
-            <span>Email Address</span>
-        </div>
-        <div class="inputBox"> 
-            <input type="text" required="required" />
-            <i class="fa fa-envelope"></i>
-            <span>Số Điện Thoại</span>
-        </div>
-        <div class="inputBox"> 
-            <input type="text" required="required" />
-            <i class="fa fa-envelope"></i>
-            <span>Địa Chỉ</span>
-        </div>
-        <div class="inputBox">
-            <input type="password" required="required"  />
-            <i class="fa fa-lock"></i>
-            <span>Password</span>
-        </div>
-        <div class="inputBox">
-            <button class="submit" >Sửa </button>
-        <!-- </div>
-        <p> Đã tài khoản ? <a [routerLink]="['/login']" >ĐăngNhập </a></p>
-    </div> -->
-   </div>
+  <app-header></app-header>
+    <div class="navbar">
+        <ul class="tab-list">
+            <li><a routerLink="/admin-customer">Quản lý Khách hàng</a></li>
+        </ul>
     </div>
-   </div>
+    <div class="customer-list">
+        <div>
+            <h1>Thông tin khách hàng</h1>
+            <!-- <form *ngIf="customerData">
+                <div class="form-row">
+                    <label for="id">ID Khách hàng:</label>
+                    <input id="id" type="text" [(ngModel)]="customerData.Id" name="id" readonly>
+                </div>
+                <div class="form-row">
+                    <label for="userName">Tên:</label>
+                    <input id="userName" type="text" [(ngModel)]="customerData.userName" name="userName">
+                </div>
+                <div class="form-row">
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" [(ngModel)]="customerData.email" name="email">
+                </div>
+                <div class="form-row">
+                    <label for="phone">Số điện thoại:</label>
+                    <input id="phone" type="text" [(ngModel)]="customerData.phone" name="phone">
+                </div>
+                <div class="form-row">
+                    <label for="address">Địa Chỉ:</label>
+                    <input id="address" type="text" [(ngModel)]="customerData.address" name="address">
+                </div>
+                <div class="form-row">
+                    <label for="password">Mật Khẩu:</label>
+                    <input id="password" type="text" [(ngModel)]="customerData.password" name="password">
+                </div>
+                <div class="form-actions"> 
+                    <button class="submit" (click)="UpdateKH()">Cập Nhật</button>
+                    <a class="btn-back" [routerLink]="['/admin-customer']">Quay Lại</a>
+                </div>
+            </form> -->
+            <form *ngIf="customerData">
+                <div class="form-row">
+                  <label for="id">ID Khách hàng:</label>
+                  <input id="id" type="text" [(ngModel)]="customerData.Id" name="id" readonly>
+                </div>
+                <div class="form-row">
+                  <label for="userName">Tên:</label>
+                  <input id="userName" type="text" [(ngModel)]="customerData.UserName" name="userName">
+                </div>
+                <div class="form-row">
+                  <label for="email">Email:</label>
+                  <input id="email" type="email" [(ngModel)]="customerData.Email" name="email">
+                </div>
+                <div class="form-row">
+                  <label for="phone">Số điện thoại:</label>
+                  <input id="phone" type="text" [(ngModel)]="customerData.Phone" name="phone">
+                </div>
+                <div class="form-row">
+                  <label for="address">Địa Chỉ:</label>
+                  <input id="address" type="text" [(ngModel)]="customerData.Address" name="address">
+                </div>
+                <div class="form-row">
+                  <label for="password">Mật Khẩu:</label>
+                  <input id="password" type="text" [(ngModel)]="customerData.Password" name="password">
+                </div>
+                <div class="form-actions">
+                  <button class="submit" (click)="updateCustomer()">Cập Nhật</button>
+                  <a class="btn-back" [routerLink]="['/admin-customer']">Quay Lại</a>
+                </div>
+              </form>
+              
+        </div>
+    </div>
+    <app-footer></app-footer>
 </body>
 </html>

@@ -1,0 +1,139 @@
+/* Tổng thể */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  .admin-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Menu bên trái */
+  .product-menu {
+    flex: 1;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-menu h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #444;
+  }
+  
+  .product-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .product-menu ul li {
+    margin-bottom: 10px;
+  }
+  
+  .product-menu ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .product-menu ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Form bên phải */
+  .product-cards {
+    flex: 3;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-cards h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #444;
+    text-align: center;
+  }
+  
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  form input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  form .btn-submit {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  form .btn-submit:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive (cho màn hình nhỏ hơn) */
+  @media screen and (max-width: 768px) {
+    .admin-container {
+      flex-direction: column;
+    }
+  
+    .product-menu,
+    .product-cards {
+      width: 100%;
+    }
+  }
+  .alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    z-index: 1000;
+    width: 80%;
+    max-width: 400px;
+  }
+  
+  .alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  

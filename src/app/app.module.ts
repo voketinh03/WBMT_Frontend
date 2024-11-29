@@ -16,6 +16,18 @@ import { ViewCustomerComponent } from './admin/view-customer/view-customer.compo
 import { EditCustomerComponent } from './admin/edit-customer/edit-customer.component';
 import { VCTCustomerComponent } from './admin/vct-customer/vct-customer.component';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { OrderctComponentComponent } from './admin/orderct-component/orderct-component.component';
+import { CategoriesComponent } from './admin/categories/categories.component';
+import { DanhMucComponent } from './admin/danh-muc/danh-muc.component';
+import { DsDMucComponent } from './admin/danh-muc/ds-d-muc/ds-d-muc.component';
+import { ThemSuaDMucComponent } from './admin/danh-muc/them-sua-d-muc/them-sua-d-muc.component';
+import { ProductComponent } from './admin/product/product.component';
+import { AddProductComponent } from './admin/add-product/add-product.component';
+import { HeaderComponent } from './admin/header/header.component';
+import { FooterComponent } from './admin/footer/footer.component';
+
 
 //import { DeleteCustomerComponent } from './admin/delete-customer/delete-customer.component';
 
@@ -31,6 +43,17 @@ import { CommonModule } from '@angular/common';
     ViewCustomerComponent,
     EditCustomerComponent,
     VCTCustomerComponent,
+    OrderctComponentComponent,
+    CategoriesComponent,
+    DanhMucComponent,
+    DsDMucComponent,
+    ThemSuaDMucComponent,
+    ProductComponent,
+    AddProductComponent,
+    EditCustomerComponent,
+    HeaderComponent,
+    FooterComponent
+    
     //DeleteCustomerComponent,
     
   ],
@@ -39,7 +62,10 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ToastrModule.forRoot(), // Thêm ToastrModule
   ],
   providers: [
     OrderHistoryComponent,

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Quản Lý Sản Phẩm</title>
+</head>
+<body>
+    <app-header></app-header>
+    <h1 class="page-title">Đây là trang Admin Quản lý Sản Phẩm</h1>
+
+    <div class="admin-container">
+        <!-- Left Navigation Form -->
+        <div class="product-menu">
+            <h2>Danh sách sản phẩm</h2>
+            <ul>
+                <li><a routerLink="/product-list">Xem thông tin sản phẩm</a></li>
+                <li><a routerLink="/add-product">Thêm sản phẩm mới</a></li>
+                <li><a routerLink="/edit-product">Sửa thông tin sản phẩm</a></li>
+            </ul>
+        </div>
+
+        <!-- Product Info Cards on the Right -->
+        <div class="product-cards">
+            <div *ngFor="let Productct of productList" class="product-info-card">
+                <p><strong>Product ID</strong> {{ Productct.ProductId }}</p>
+                <p><strong>Product NAME:</strong> {{ Productct.ProductName }}</p>
+                <p><strong>Brand ID:</strong> {{ Productct.BrandId }}</p>
+                <p><strong>Brand NAME:</strong> {{ Productct.BrandName }}</p>
+                <p><strong>Category ID:</strong> {{ Productct.CategoryId}}</p>
+                <p><strong>Category NAME:</strong> {{ Productct.CategoryName}}</p>
+                <p><strong>Description:</strong> {{ Productct.Description}}</p>
+                <p><strong>Price:</strong> {{ Productct.Price }} VND</p>
+                <p><strong>Quantity:</strong> {{ Productct.Quantity }}</p>
+                <p><strong>Image URL:</strong> {{ Productct.ImageUrl }}</p>
+                <div class="button-group">
+                    <button routerLink="/add-product">Thêm SP</button>
+                    <button routerLink="/product-details">Xem CTSP</button>
+                    <button routerLink="/edit-product">Sửa SP</button>
+                    <button (click)="deleteProduct(Productct.ProductId)" class="btn btn-danger">
+                        Delete
+                    </button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</body>
+</html>

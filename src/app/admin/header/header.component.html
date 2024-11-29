@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+          <img src="./img/Logo.jpg" alt="TechCare Logo" class="logo">
+          <span><a  [routerLink]="['/admin']">TechCare </a></span>
+        </div>
+        <div class="header-center">
+            <span class="icon search-icon">🔍</span> <!-- Biểu tượng kính lúp -->
+            <input type="text" placeholder="Nhập tên sản phẩm cần tìm"> 
+          <button>Tìm kiếm</button>
+        </div>
+        <div class="header-right">
+            <span>Hotline CSKH: 0989308888</span>
+            <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+              <span>Xin chào, <span> {{ userName }}</span></span>
+              <button (click)="logout()">Đăng xuất</button>
+            </ng-container>
+            <ng-template #notLoggedIn>
+              <button routerLink="/login">Đăng nhập</button>
+              <button routerLink="/register">Đăng ký</button>
+            </ng-template>
+          </div>
+          
+          
+      </header>    
+</body>
+</html>

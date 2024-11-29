@@ -10,6 +10,14 @@ import { OrderHistoryComponent } from './admin/order-history/order-history.compo
 import { ViewCustomerComponent } from './admin/view-customer/view-customer.component';
 import { EditCustomerComponent } from './admin/edit-customer/edit-customer.component';
 import { VCTCustomerComponent } from './admin/vct-customer/vct-customer.component';
+import { OrderctComponentComponent } from './admin/orderct-component/orderct-component.component';
+import { DanhMucComponent } from './admin/danh-muc/danh-muc.component';
+import { ThemSuaDMucComponent } from './admin/danh-muc/them-sua-d-muc/them-sua-d-muc.component';
+import { DsDMucComponent } from './admin/danh-muc/ds-d-muc/ds-d-muc.component';
+// import { ProductComponent } from './admin/product/product.component';
+import { AddProductComponent } from './admin/add-product/add-product.component';
+import { ProductComponent } from './admin/product/product.component';
+import { HeaderComponent } from './admin/header/header.component';
 //import { ViewctCustomerComponent } from './admin/viewct-customer/viewct-customer.component';
 //import { DeleteCustomerComponent } from './admin/delete-customer/delete-customer.component';
 
@@ -23,13 +31,24 @@ const routes: Routes = [
   { path: 'admin-customer', component: AdminCustomerComponent},
   { path: 'order-history', component: OrderHistoryComponent},
   { path: 'view-customer', component: ViewCustomerComponent},
-  { path: 'edit-customer', component: EditCustomerComponent},
-  //{ path: 'vct-customer', component: VCTCustomerComponent},
+  { path: 'edit-customer/:id', component: EditCustomerComponent},
+  { path: 'vct-customer/:id', component: VCTCustomerComponent},
+  { path: 'orderct-component/:id', component: OrderctComponentComponent},
+  {path: 'danhmuc', component: DanhMucComponent },
+  {path: 'danhmuc/them-sua-d-muc', component: ThemSuaDMucComponent},
+  {path: 'ds-d-muc', component: DsDMucComponent },
+  { path: 'product', component: ProductComponent},
+  { path: 'add-product', component: AddProductComponent},
+  { path: 'edit-product/:id', component: EditCustomerComponent},
+  // { path: 'header', component: HeaderComponent},
+ 
+  
+ 
  // { path: 'delete-customer', component: DeleteCustomerComponent},
 
   // { path: 'home', component: HomeComponent}
 
-    { path: 'vct-customer', component: VCTCustomerComponent }
+    
   ];
 
 @NgModule({

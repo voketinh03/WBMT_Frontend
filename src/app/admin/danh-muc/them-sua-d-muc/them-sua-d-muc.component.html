@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thêm danh mục</title>
+  
+</head>
+<style>
+  /* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cce1ff;
+  padding: 10px 20px;
+}
+
+header .header-left {
+  display: flex;
+  align-items: center;
+}
+
+header .logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+header .header-center input {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+header .header-center button {
+  padding: 5px 10px;
+}
+
+header .header-right button {
+  margin-left: 10px;
+  padding: 5px 10px;
+}
+
+main {
+  display: flex;
+  margin: 20px;
+}
+
+aside {
+  flex: 1;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside ul li {
+  margin: 10px 0;
+}
+
+aside ul li a {
+  text-decoration: none;
+  color: blue;
+}
+
+section {
+  flex: 3;
+  padding: 20px;
+}
+
+section h1 {
+  color: #3388ff;
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+form button {
+  padding: 10px 20px;
+}
+
+footer {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+footer .social a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+footer .social-icon img {
+  width: 32px; /* Kích thước biểu tượng */
+  height: 32px;
+  margin-right: 10px; /* Khoảng cách giữa các biểu tượng */
+  vertical-align: middle; /* Căn giữa với dòng chữ hoặc nội dung khác */
+}
+
+
+footer .social-icon {
+  text-decoration: none;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+</style>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="logo.png" alt="TechCare Logo" class="logo">
+      <span>TechCare</span>
+    </div>
+    <div class="header-center">
+        <span class="icon search-icon">🔍</span> <!-- Biểu tượng kính lúp -->
+        <input type="text" placeholder="Nhập tên sản phẩm cần tìm"> 
+      <button>Tìm kiếm</button>
+    </div>
+    <div class="header-right">
+      <span>Hotline CSKH: 0989308888</span>
+      <button>Đăng nhập</button>
+      <button>Đăng ký</button>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <ul>
+        <li><a routerLink="/admin-customer"> Quản lý khách hàng</a></li>
+          <li><a name="Pro" routerLink="/product">Quản lý sản phẩm  </a> </li>
+          <li><a routerLink="/ds-d-muc">Quản lý danh mục</a></li>
+          <li><a routerLink="#"> Quản lý đơn hàng</a></li>
+      </ul>
+    </aside>
+
+    <!-- <table>
+      <tr>
+        <th>Tên sản phẩm</th>
+        <th>Mô tả</th>
+        <th>Trạng thái</th>
+        <th>Tuỳ chỉnh</th>
+      </tr>
+    <tbody *ngFor="let item of danhMuc">
+        <tr>/-strong/-heart:>:o:-((:-h <td>Xe máy</td>/-strong/-heart:>:o:-((:-h <td>hello </td>/-strong/-heart:>:o:-((:-h <td>ffssds</td>
+            <td>
+                <button>Thêm</button>
+                <button>Sửa</button>
+                <button>Xoá</button>
+            </td>
+        </tr>
+    </tbody>
+    </table> -->
+
+
+      
+          
+
+    <section>
+      <h1>Thêm danh mục</h1>
+      <!-- [formGroup]="proAdd" (submit)="onSubmit() -->
+      <form action="" method="POST" >
+        <legend>Thêm danh mục</legend>
+        
+        <div class="form-group">
+            <label for=""> Tên danh mục</label>
+            <input type="text" class="from-control" formControlName="Name" placeholder="Nhập tên danh mục"/>
+            <!-- <div *ngIf="submited && f.category_name.errors">
+              <small *ngIf="f.category_name.errors">Tên danh mục không phải là số</small>
+            </div> -->
+            <label for=""> Mô tả</label>
+            <textarea type="text" class="from-control" formControlName="Name" placeholder="Nhập mô tả danh mục"></textarea>
+            <!-- <div *ngIf="submited && f.description.errors">
+              <small *ngIf="f.description.errors">Mô tả có độ dài lớn hơn 10 </small>
+            </div> -->
+            <!-- <div class="form-group">
+              <label for=""> Trạng thái</label>
+            <div class="radio">
+              <label type="radio" formControlName="Status" value="Published">Còn</label>
+              <label type="radio" formControlName="Status" value="Private">Hết</label>
+            </div>
+            </div> -->
+            
+          </div>
+          <button type="submit" class="btn btn-primary">Submit </button>
+      </form>
+      
+      <!-- <form>
+        
+        <label for="category">Mã danh mục</label>
+        <input type="text" id="category_name" name="category_name" placeholder="Vui lòng nhập mã danh mục" [(ngModel)]="maDanhMuc" required>
+        <label for="category-name">Tên danh mục</label>
+        <input type="text" id="category-name" placeholder="Vui lòng nhập tên danh mục" [(ngModel)]="tenDanhMuc">
+        
+        <label for="description">Mô tả</label>
+        <textarea id="description" placeholder="Nhập mô tả" [(ngModel)]="moTa"></textarea>
+        
+        <div class="form-buttons">
+          <button type="submit" (click)="themDanhMuc()">Thêm</button>
+          <button type="reset">Đặt lại</button>
+        </div>
+      </form> -->
+    </section> 
+     <!-- <label class="col-sm-3">Tên danh mục</label>
+<div class="col-sm-9"><input class="form-control" [(ngModel)]="tenDanhMuc"/>
+    <label class="col-sm-3">Mô tả</label>
+    <input class="form-control" [(ngModel)]="moTa"/>
+</div>
+<button class="btn btn-primary" (click)="themDanhMuc()">Thêm danhh mục</button> -->
+  </main>
+
+  <footer>
+    <div class="support">
+      <p style="color: #3388ff;">Tổng đài hỗ trợ (8:00-17:30)</p>
+      <p style="color: #3388ff;">Mua hàng: 0989308888</p>
+      <p style="color: #3388ff;">Bảo hành: 0989303333</p>
+      <p>Email: cskhTechCaregmail.com</p>
+    </div>
+    <div class="social">
+      <a href="#" class="social-icon">
+        <img src="image/zalo.jpg" >
+      </a>
+      <a href="#" class="social-icon">
+        <img src="image/instagram.jpg">
+      </a>
+      <a href="#" class="social-icon">
+        <img src="image/fb.png" >
+      </a>
+    </div>
+  </footer>
+</body>
+</html>

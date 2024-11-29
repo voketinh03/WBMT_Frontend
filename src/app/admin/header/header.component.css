@@ -1,0 +1,33 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cce1ff;
+    padding: 10px 20px;
+  }
+  
+  header .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  header .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  header .header-center input {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  header .header-center button {
+    padding: 5px 10px;
+  }
+  
+  header .header-right button {
+    margin-left: 10px;
+    padding: 5px 10px;
+  }
+  

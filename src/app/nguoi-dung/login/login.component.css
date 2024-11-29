@@ -15,7 +15,9 @@ body {
 }
 
 .container {
-    padding: 40px;
+    width: 400px; /* Tăng độ rộng của container */
+    max-width: 100%; /* Đảm bảo không vượt quá kích thước màn hình */
+    padding: 60px 70px; /* Tăng padding để thêm chiều dài */
     border-radius: 20px;
     border: 8px solid #233243;
     background: #2e3b4e;

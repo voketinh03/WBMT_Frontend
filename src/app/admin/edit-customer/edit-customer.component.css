@@ -1,0 +1,121 @@
+/* Styling for the form */
+form {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns: Label (1/3 width) and Input (2/3 width) */
+    align-items: center;
+    gap: 10px;
+  }
+  
+  label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    background-color: #fff;
+  }
+  
+  input[readonly] {
+    background-color: #e9e9e9;
+  }
+  
+  /* Heading Styling */
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+  }
+  
+  .tab-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  .tab-list li {
+    margin-right: 20px;
+  }
+  
+  .tab-list a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .tab-list a:hover {
+    text-decoration: underline;
+    color: #ffcc00;
+  }
+  th {
+    background-color: #333;
+    color: white;
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .form-actions {
+    display: flex;
+    /* justify-content: space-between; Tách đều hai nút */
+    justify-content: center;
+    gap: 30px; /* Khoảng cách giữa các nút */
+    margin-top: 20px;
+}
+
+button.submit {
+    background-color: #2ecc71; /* Màu xanh lá */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button.submit:hover {
+    background-color: #27ae60; /* Xanh lá đậm hơn khi hover */
+}
+
+a.btn-back {
+    text-decoration: none;
+    color: white;
+    background-color: #e74c3c; /* Màu đỏ */
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+a.btn-back:hover {
+    background-color: #c0392b; /* Đỏ đậm hơn khi hover */
+}

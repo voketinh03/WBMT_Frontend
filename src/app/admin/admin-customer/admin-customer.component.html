@@ -6,36 +6,42 @@
     <title>Admin Page</title>
     
 </head>
+<app-header></app-header>
 <body>
-    <h1 class="page-title">Đây là trang Admin Quản lý Khách Hàng</h1>
+    
+    <h1 class="page-title"> Quản lý Khách Hàng</h1>
 
 <div class="admin-container">
-    <!-- Left Navigation Form -->
+    <!-- Left Navigation Form -->  
     <div class="customer-menu">
-        <h2>Danh sách khách hàng</h2>
+        <h2><a  [routerLink]="['/admin']"> Quản lý Khách Hàng</a></h2>
         <ul>
-            <li><a routerLink="/order-history">Xem lịch sử đơn hàng</a></li>
             <li><a routerLink="/view-customer">Xem thông tin khách hàng</a></li>
-            <li><a routerLink="/edit-customer">Sửa thông tin khách hàng</a></li>
+            <li><a routerLink="/order-history">Xem lịch sử đơn hàng</a></li>
+            
+            <!-- <li><a routerLink="/edit-customer">Sửa thông tin khách hàng</a></li> -->
         </ul>
     </div>
 
     <!-- Customer Info Cards on the Right -->
     <div class="customer-cards">
         <div *ngFor="let customer of laythongtin" class="customer-info-card">
+            <p><strong>Id Khách hàng:</strong> {{ customer.Id }}</p>
             <p><strong>Họ tên:</strong> {{ customer.UserName }}</p>
             <p><strong>Email:</strong> {{ customer.Email }}</p>
             <p><strong>SĐT:</strong> {{ customer.Phone }}</p>
             <p><strong>Địa chỉ:</strong> {{ customer.Address }}</p>
             <div class="button-group">
-                <button routerLink="/vct-customer">Xem CT</button>
-                <button routerLink="/order-history">Xem LSDH</button>
-                <button routerLink="/edit-customer">Sửa TK</button>
-                <button >Xóa TK</button>
+                <button [routerLink]="['/vct-customer', customer.Id]">Xem CT</button>
+                <button [routerLink]="['/orderct-component',customer.Id]">Xem LSDH</button>
+                <button [routerLink]="['/edit-customer', customer.Id]">Sửa TK</button>
+                <button (click)="deleteCustomer(customer)">Xóa TK</button>
                 <!-- (click)="deleteCustomer(customer)" -->
             </div>
         </div>
     </div>
 </div>
+
 </body>
+<app-footer></app-footer>
 </html>

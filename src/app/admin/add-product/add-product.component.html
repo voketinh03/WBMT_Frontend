@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Sản Phẩm</title>
+</head>
+<body>
+  <app-header></app-header>
+  <!-- add-product.component.html -->
+  <div class="admin-container">
+    <!-- Left Navigation Form -->
+    <div class="product-menu">
+        <h2>Danh sách sản phẩm</h2>
+        <ul>
+            <li><a routerLink="/product">Xem chi tiết sản phẩm</a></li>
+            <li><a routerLink="/add-product">Thêm sản phẩm mới</a></li>
+            <li><a routerLink="/edit-product">Sửa thông tin sản phẩm</a></li>
+        </ul>
+    </div>
+
+    <!-- Product Info Cards on the Right -->
+    <div class="product-cards">
+        <h2>Thêm Sản Phẩm Mới</h2>
+        <form #productForm="ngForm" (ngSubmit)="addProduct()" novalidate>
+          <label for="productName">Tên Sản Phẩm:</label>
+          <input
+            type="text"
+            id="productName"
+            [(ngModel)]="productName"
+            name="productName"
+            required
+            minlength="3"
+            #productNameCtrl="ngModel"
+          />
+          <div *ngIf="productNameCtrl.invalid && productNameCtrl.touched" class="error">
+            <small *ngIf="productNameCtrl.errors">Tên sản phẩm không được để trống.</small>
+            <small *ngIf="productNameCtrl.errors">
+              Tên sản phẩm phải có ít nhất 3 ký tự.
+            </small>
+          </div>
+          <br /><br />
+        
+          <label for="brandId">ID Brand:</label>
+          <input
+            type="number"
+            id="brandId"
+            [(ngModel)]="brandId"
+            name="brandId"
+            min="1"
+            required
+            #brandIdCtrl="ngModel"
+          />
+          <div *ngIf="brandIdCtrl.invalid && brandIdCtrl.touched" class="error">
+            <small *ngIf="brandIdCtrl.errors">ID Brand không được để trống.</small>
+            <small *ngIf="brandIdCtrl.errors">ID Brand phải lớn hơn 0.</small>
+          </div>
+          <br /><br />
+        
+          <label for="categoryId">ID Category:</label>
+          <input
+            type="number"
+            id="categoryId"
+            [(ngModel)]="categoryId"
+            name="categoryId"
+            min="1"
+            required
+            #categoryIdCtrl="ngModel"
+          />
+          <div *ngIf="categoryIdCtrl.invalid && categoryIdCtrl.touched" class="error">
+            <small *ngIf="categoryIdCtrl.errors">ID Category không được để trống.</small>
+            <small *ngIf="categoryIdCtrl.errors">ID Category phải lớn hơn 0.</small>
+          </div>
+          <br /><br />
+        
+          <label for="price">Giá:</label>
+          <input
+            type="number"
+            id="price"
+            [(ngModel)]="price"
+            name="price"
+            min="1"
+            step="0.01"
+            required
+            #priceCtrl="ngModel"
+          />
+          <div *ngIf="priceCtrl.invalid && priceCtrl.touched" class="error">
+            <small *ngIf="priceCtrl.errors">Giá không được để trống.</small>
+            <small *ngIf="priceCtrl.errors">Giá phải lớn hơn 0.</small>
+          </div>
+          <br /><br />
+        
+          <label for="quantity">Số lượng:</label>
+          <input
+            type="number"
+            id="quantity"
+            [(ngModel)]="quantity"
+            name="quantity"
+            min="1"
+            required
+            #quantityCtrl="ngModel"
+          />
+          <div *ngIf="quantityCtrl.invalid && quantityCtrl.touched" class="error">
+            <small *ngIf="quantityCtrl.errors">Số lượng không được để trống.</small>
+            <small *ngIf="quantityCtrl.errors">Số lượng phải lớn hơn 0.</small>
+          </div>
+          <br /><br />
+        
+          <label for="imageUrl">URL Hình ảnh:</label>
+          <input
+            type="url"
+            id="imageUrl"
+            [(ngModel)]="imageUrl"
+            name="imageUrl"
+            required
+            pattern="https?://.+"
+            #imageUrlCtrl="ngModel"
+          />
+          <div *ngIf="imageUrlCtrl.invalid && imageUrlCtrl.touched" class="error">
+            <small *ngIf="imageUrlCtrl.errors">URL hình ảnh không được để trống.</small>
+            <small *ngIf="imageUrlCtrl.errors">URL hình ảnh không hợp lệ.</small>
+          </div>
+          <br /><br />
+        
+          <button
+            type="submit"
+            class="btn-submit"
+            [disabled]="productForm.invalid"
+          >
+            Thêm Sản Phẩm
+          </button>
+         <!-- Banner thông báo lỗi -->
+         <div *ngIf="errorMessage" class="alert alert-error">
+          {{ errorMessage }}
+        </div>
+        
+        <!-- Banner thông báo thành công -->
+        <div *ngIf="successMessage" class="alert alert-success">
+          {{ successMessage }}
+        </div>
+          </form>
+      </div>
+   </div>
+   <app-footer></app-footer>
+</body>
+</html>
