@@ -40,7 +40,7 @@ export class AdminCustomerComponent implements OnInit {
   }
   onEditCustomer(customerId: number): void {
     this.router.navigate(['/edit-customer', customerId]); // Điều hướng đến VCTCustomerComponent kèm ID
-  }
+  } 
   GetOrderDetails(orderId: number): void {
     this.router.navigate(['/edit-customer', orderId]); // Điều hướng đến VCTCustomerComponent kèm ID
   }

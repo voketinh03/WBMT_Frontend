@@ -10,7 +10,7 @@ describe('OrderctComponentComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [OrderctComponentComponent]
     })
-    .compileComponents();
+    .compileComponents(); 
 
     fixture = TestBed.createComponent(OrderctComponentComponent);
     component = fixture.componentInstance;

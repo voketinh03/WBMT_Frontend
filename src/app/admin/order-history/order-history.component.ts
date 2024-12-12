@@ -14,7 +14,7 @@ export class OrderHistoryComponent implements OnInit {
   
   constructor(private service: SharedService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.GetLSDH(); // Gọi hàm GetTT khi khởi tạo
   }
 
