@@ -6,11 +6,12 @@
     <title>Thêm Sản Phẩm</title>
 </head>
 <body>
+  <app-header></app-header>
   <!-- add-product.component.html -->
   <div class="admin-container">
     <!-- Left Navigation Form -->
     <div class="product-menu">
-        <h2>Danh sách sản phẩm</h2>
+        <h2>Quản Lý Sản Phẩm</h2>
         <ul>
             <li><a routerLink="/product">Xem Danh Sách Sản Phẩm</a></li>
             <li><a routerLink="/add-product">Thêm Sản Phẩm</a></li>
@@ -38,7 +39,7 @@
           </div>
           <br /><br />
         
-          <label for="brandId">ID Brand:</label>
+          <label for="brandId">ID Thương Hiệu:</label>
           <input
             type="number"
             id="brandId"
@@ -54,7 +55,7 @@
           </div>
           <br /><br />
         
-          <label for="categoryId">ID Category:</label>
+          <label for="categoryId">ID Danh Mục:</label>
           <input
             type="number"
             id="categoryId"
@@ -83,7 +84,7 @@
             (keyup)="formatPrice()"
           />
           <div *ngIf="priceCtrl.invalid && priceCtrl.touched" class="error">
-<small *ngIf="priceCtrl.errors">Giá không được để trống.</small>
+            <small *ngIf="priceCtrl.errors">Giá không được để trống.</small>
             <small *ngIf="priceCtrl.errors">Giá phải lớn hơn 0.</small>
           </div>
           
@@ -142,5 +143,6 @@
           </form>
       </div>
    </div>
+   <app-footer></app-footer>
 </body>
 </html>

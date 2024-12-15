@@ -9,7 +9,7 @@ import { SharedService } from '../../shared.service';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent {
-    productForm:any;
+  productForm:any;
     productName: string = '';
     brandId: number | null = null;
     categoryId: number | null = null;
@@ -81,7 +81,7 @@ export class AddProductComponent {
           }, 2000);
         },
         error: (error: any) => {
-this.errorMessage = error.error.message || 'Có lỗi xảy ra khi thêm sản phẩm. Vui lòng thử lại!';
+          this.errorMessage = error.error.message || 'Có lỗi xảy ra khi thêm sản phẩm. Vui lòng thử lại!';
           this.successMessage = null;
   
           // Ẩn thông báo lỗi sau 3 giây
