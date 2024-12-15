@@ -1,169 +1,169 @@
 /* General body styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Admin container style */
-  .admin-container {
-    display: flex;
-    flex-direction: row;
-    margin: 20px;
-  }
-  
-  /* Product menu styling */
-  .product-menu {
-    width: 30%; /* Set menu width to 30% */
-    height: 100%; /* Use full height for menu */
-    background-color: #eed9d9;
-    color: #2a601b;
-    padding: 20px;
-    margin-top: 20px;
-    margin-left: 10px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for menu */
-    border-radius: 8px; /* Rounded corners */
-    margin-right: 2%; /* Space between menu and other sections */
-    transition: transform 0.3s ease; /* Smooth transition effect */
-  }
-  
-  /* Add hover effect for the product menu */
-  .product-menu:hover {
-    transform: translateX(5px); /* Slightly shift the menu when hovered */
-    text-decoration: none;
-  }
-  
-  .product-menu h2 {
-    color: #3c763d;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  /* List styling for the menu */
-  .product-menu ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .product-menu ul li {
-    margin: 10px 0;
-  }
-  
-  .product-menu ul li a {
-    color: #3c763d;
-    padding: 10px;
-    text-decoration: none;
-    font-size: 16px;
-    display: block; /* Make the links block-level for better hover effect */
-    border-radius: 5px; /* Rounded corners for links */
-    transition: background-color 0.3s ease; /* Smooth transition for background change */
-  }
-  
-  /* Hover effect for links */
-  .product-menu ul li a:hover {
-    text-decoration: underline;
-    background-color: #1d3b24; /* Change background on hover */
-    color: white; /* Change text color to white on hover */
-  }
-  
-  /* Product edit container styling */
-  .product-edit-container {
-    flex: 1;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid gray;
-    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth effect */
-  }
-  
-  /* Add hover effect for the product edit container */
-  .product-edit-container:hover {
-    transform: translateY(-5px); /* Slight upward shift on hover */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Deep shadow on hover */
-  }
-  
-  .product-edit-container h2 {
-    color: #5bc0de;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Form elements styling */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  label {
-    font-size: 16px;
-    color: #333;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  input[type="url"] {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s ease; /* Smooth focus effect */
-  }
-  
-  input[type="text"]:focus,
-  input[type="number"]:focus,
-  input[type="url"]:focus {
-    border-color: #5bc0de;
-    outline: none;
-  }
-  
-  button.btn-submit {
-    padding: 12px 20px;
-    background-color: #5bc0de;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Hover effect for submit button */
-  button.btn-submit:hover {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Admin container style */
+.admin-container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+/* Product menu styling */
+.product-menu {
+  width: 30%; /* Set menu width to 30% */
+  height: 100%; /* Use full height for menu */
+  background-color: #eed9d9;
+  color: #2a601b;
+  padding: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for menu */
+  border-radius: 8px; /* Rounded corners */
+  margin-right: 2%; /* Space between menu and other sections */
+  transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+/* Add hover effect for the product menu */
+.product-menu:hover {
+  transform: translateX(5px); /* Slightly shift the menu when hovered */
+  text-decoration: none;
+}
+
+.product-menu h2 {
+  color: #3c763d;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* List styling for the menu */
+.product-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product-menu ul li {
+  margin: 10px 0;
+}
+
+.product-menu ul li a {
+  color: #3c763d;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  display: block; /* Make the links block-level for better hover effect */
+  border-radius: 5px; /* Rounded corners for links */
+  transition: background-color 0.3s ease; /* Smooth transition for background change */
+}
+
+/* Hover effect for links */
+.product-menu ul li a:hover {
+  text-decoration: underline;
+  background-color: #1d3b24; /* Change background on hover */
+  color: white; /* Change text color to white on hover */
+}
+
+/* Product edit container styling */
+.product-edit-container {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid gray;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth effect */
+}
+
+/* Add hover effect for the product edit container */
+.product-edit-container:hover {
+  transform: translateY(-5px); /* Slight upward shift on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Deep shadow on hover */
+}
+
+.product-edit-container h2 {
+  color: #5bc0de;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Form elements styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-size: 16px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease; /* Smooth focus effect */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus {
+  border-color: #5bc0de;
+  outline: none;
+}
+
+button.btn-submit {
+  padding: 12px 20px;
+  background-color: #5bc0de;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for submit button */
+button.btn-submit:hover {
   background-color: #31a1c1;
-  }
-  
-  /* Disabled button styling */
-  button:disabled {
-    background-color: #cfd8dc;
-    cursor: not-allowed;
-  }
-  
-  /* Alert messages styling */
-  .alert {
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .alert-success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-  }
-  
-  .alert-error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-  }
-  
-  /* Additional hover effects for form inputs */
-  input[type="text"]:hover,
-  input[type="number"]:hover,
-  input[type="url"]:hover {
-    border-color: #1a5427; /* Highlight input fields on hover */
-  }
+}
+
+/* Disabled button styling */
+button:disabled {
+  background-color: #cfd8dc;
+  cursor: not-allowed;
+}
+
+/* Alert messages styling */
+.alert {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Additional hover effects for form inputs */
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="url"]:hover {
+  border-color: #1a5427; /* Highlight input fields on hover */
+}

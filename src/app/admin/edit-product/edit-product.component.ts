@@ -95,7 +95,7 @@ onPriceInput(event: any): void {
       next: (response) => {
         console.log('API Response:', response);
         this.successMessage = 'Sản phẩm đã được cập nhật thành công!';
-setTimeout(() => {
+        setTimeout(() => {
           this.router.navigate(['/product']);
         }, 2000);
       },
@@ -112,4 +112,4 @@ setTimeout(() => {
       },
     });
   }
-}
+} 
