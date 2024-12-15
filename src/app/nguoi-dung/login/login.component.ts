@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         if (this.table.status === 'success') {
           alert("Đăng nhập thành công!");
            // Lưu tên người dùng vào localStorage sau khi đăng nhập thành công
-      
+    
          // Lưu thông tin vào localStorage
         localStorage.setItem('userName', this.userName);
         console.log('Lưu userName vào localStorage:', this.userName);

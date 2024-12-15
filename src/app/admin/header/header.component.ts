@@ -8,32 +8,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn = false; 
-  userName: string  | null = null;
-  router: any;
+  isLoggedIn: boolean = false;
+  userName: string | null = '';
 
-  // Inject SharedService trong constructor
-  constructor(private sharedService: SharedService, router: Router ) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.sharedService.isLoggedIn$.subscribe((status: boolean) => {
-      console.log('Trạng thái đăng nhập:', status);
-      this.isLoggedIn = status;
-  
-      if (status) {
-        this.userName = localStorage.getItem('userName');
-        console.log('Lấy userName từ localStorage:', this.userName);
-      }
-    });
+  ngOnInit(): void {
+    // Kiểm tra trạng thái từ localStorage hoặc sessionStorage
+    const user = localStorage.getItem('userName');
+    if (user) {
+      this.isLoggedIn = true;
+      this.userName = user;
+    }
   }
-  
-  logout() {
-    // Xóa thông tin đăng nhập
-    localStorage.removeItem('userName');
-    this.sharedService.updateLoginStatus(false); // Cập nhật trạng thái đăng xuất
-    window.location.href = "/login"; // Điều hướng đến trang đăng nhập
+
+  dangNhap(userName: string): void {
+    this.isLoggedIn = true;
+    this.userName = userName;
+    localStorage.setItem('userName', userName); // Lưu trạng thái vào localStorage
   }
-  goToProfile(): void {
-    this.router.navigate(['/profile']); // Điều hướng đến trang profile
+
+  logout(): void {
+    this.isLoggedIn = false;
+    this.userName = null;
+    localStorage.removeItem('userName'); // Xóa trạng thái khỏi localStorage
   }
 }

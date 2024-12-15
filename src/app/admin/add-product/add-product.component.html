@@ -6,22 +6,19 @@
     <title>Thêm Sản Phẩm</title>
 </head>
 <body>
-  <app-header></app-header>
   <!-- add-product.component.html -->
   <div class="admin-container">
     <!-- Left Navigation Form -->
     <div class="product-menu">
         <h2>Danh sách sản phẩm</h2>
         <ul>
-            <li><a routerLink="/product">Xem chi tiết sản phẩm</a></li>
-            <li><a routerLink="/add-product">Thêm sản phẩm mới</a></li>
-            <li><a routerLink="/edit-product">Sửa thông tin sản phẩm</a></li>
+            <li><a routerLink="/product">Xem Danh Sách Sản Phẩm</a></li>
+            <li><a routerLink="/add-product">Thêm Sản Phẩm</a></li>
         </ul>
     </div>
 
     <!-- Product Info Cards on the Right -->
     <div class="product-cards">
-        <h2>Thêm Sản Phẩm Mới</h2>
         <form #productForm="ngForm" (ngSubmit)="addProduct()" novalidate>
           <label for="productName">Tên Sản Phẩm:</label>
           <input
@@ -75,7 +72,7 @@
         
           <label for="price">Giá:</label>
           <input
-            type="number"
+            type="text"
             id="price"
             [(ngModel)]="price"
             name="price"
@@ -83,16 +80,20 @@
             step="0.01"
             required
             #priceCtrl="ngModel"
+            (keyup)="formatPrice()"
           />
           <div *ngIf="priceCtrl.invalid && priceCtrl.touched" class="error">
-            <small *ngIf="priceCtrl.errors">Giá không được để trống.</small>
+<small *ngIf="priceCtrl.errors">Giá không được để trống.</small>
             <small *ngIf="priceCtrl.errors">Giá phải lớn hơn 0.</small>
           </div>
+          
+          <!-- Display the formatted price -->
           <br /><br />
+          <span id="price-convert">{{ formattedPrice }}</span>
         
           <label for="quantity">Số lượng:</label>
           <input
-            type="number"
+            type="text"
             id="quantity"
             [(ngModel)]="quantity"
             name="quantity"
@@ -141,6 +142,5 @@
           </form>
       </div>
    </div>
-   <app-footer></app-footer>
 </body>
 </html>

@@ -135,22 +135,7 @@ footer .social-icon {
 
 </style>
 <body>
-  <header>
-    <div class="header-left">
-      <img src="logo.png" alt="TechCare Logo" class="logo">
-      <span>TechCare</span>
-    </div>
-    <div class="header-center">
-        <span class="icon search-icon">🔍</span> <!-- Biểu tượng kính lúp -->
-        <input type="text" placeholder="Nhập tên sản phẩm cần tìm"> 
-      <button>Tìm kiếm</button>
-    </div>
-    <div class="header-right">
-      <span>Hotline CSKH: 0989308888</span>
-      <button>Đăng nhập</button>
-      <button>Đăng ký</button>
-    </div>
-  </header>
+  <app-header></app-header>
 
   <main>
     <aside>
@@ -162,27 +147,7 @@ footer .social-icon {
       </ul>
     </aside>
 
-    <!-- <table>
-      <tr>
-        <th>Tên sản phẩm</th>
-        <th>Mô tả</th>
-        <th>Trạng thái</th>
-        <th>Tuỳ chỉnh</th>
-      </tr>
-    <tbody *ngFor="let item of danhMuc">
-        <tr>/-strong/-heart:>:o:-((:-h <td>Xe máy</td>/-strong/-heart:>:o:-((:-h <td>hello </td>/-strong/-heart:>:o:-((:-h <td>ffssds</td>
-            <td>
-                <button>Thêm</button>
-                <button>Sửa</button>
-                <button>Xoá</button>
-            </td>
-        </tr>
-    </tbody>
-    </table> -->
-
-
-      
-          
+         
 
     <section>
       <h1>Thêm danh mục</h1>
@@ -193,22 +158,9 @@ footer .social-icon {
         <div class="form-group">
             <label for=""> Tên danh mục</label>
             <input type="text" class="from-control" formControlName="Name" placeholder="Nhập tên danh mục"/>
-            <!-- <div *ngIf="submited && f.category_name.errors">
-              <small *ngIf="f.category_name.errors">Tên danh mục không phải là số</small>
-            </div> -->
-            <label for=""> Mô tả</label>
-            <textarea type="text" class="from-control" formControlName="Name" placeholder="Nhập mô tả danh mục"></textarea>
-            <!-- <div *ngIf="submited && f.description.errors">
-              <small *ngIf="f.description.errors">Mô tả có độ dài lớn hơn 10 </small>
-            </div> -->
-            <!-- <div class="form-group">
-              <label for=""> Trạng thái</label>
-            <div class="radio">
-              <label type="radio" formControlName="Status" value="Published">Còn</label>
-              <label type="radio" formControlName="Status" value="Private">Hết</label>
-            </div>
-            </div> -->
             
+            <label for=""> Mô tả</label>
+            <textarea type="text" class="from-control" formControlName="Name" placeholder="Nhập mô tả danh mục"></textarea>            
           </div>
           <button type="submit" class="btn btn-primary">Submit </button>
       </form>

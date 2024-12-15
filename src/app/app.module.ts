@@ -27,6 +27,8 @@ import { ProductComponent } from './admin/product/product.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { HeaderComponent } from './admin/header/header.component';
 import { FooterComponent } from './admin/footer/footer.component';
+import { ProductDetailComponent } from './home/product-detail/product-detail.component';
+import { EditProductComponent } from './admin/edit-product/edit-product.component';
 
 
 //import { DeleteCustomerComponent } from './admin/delete-customer/delete-customer.component';
@@ -50,9 +52,10 @@ import { FooterComponent } from './admin/footer/footer.component';
     ThemSuaDMucComponent,
     ProductComponent,
     AddProductComponent,
-    EditCustomerComponent,
+    EditProductComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProductDetailComponent
     
     //DeleteCustomerComponent,
     

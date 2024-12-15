@@ -1,33 +1,109 @@
+/* General header styling */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #cce1ff;
-    padding: 10px 20px;
-  }
-  
-  header .header-left {
-    display: flex;
-    align-items: center;
-  }
-  
-  header .logo {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-  }
-  
-  header .header-center input {
-    padding: 5px;
-    margin-right: 10px;
-  }
-  
-  header .header-center button {
-    padding: 5px 10px;
-  }
-  
-  header .header-right button {
-    margin-left: 10px;
-    padding: 5px 10px;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cce1ff;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Left section (logo and link) */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-left .logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.header-left a {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.header-left a:hover {
+  color: #003d80;
+}
+
+/* Center section (search bar) */
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-center input {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
+}
+
+.header-center button {
+  padding: 5px 15px;
+  font-size: 14px;
+  border: none;
+  background-color: #0056b3;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-center button:hover {
+  background-color: #003d80;
+}
+
+/* Right section (contact and user actions) */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.header-right .icon {
+  margin-right: 5px;
+}
+
+.header-right .welcome-message {
+  font-weight: bold;
+  color: #333;
+}
+
+.header-right .user-name {
+  color: #0056b3;
+}
+
+/* Buttons for login/register/logout */
+.header-right button {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  background-color: #0056b3;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-right button:hover {
+  background-color: #003d80;
+}
+
+.header-right a {
+  text-decoration: none;
+  color: white;
+}

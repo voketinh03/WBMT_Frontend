@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khach Hang</title>
+</head>
+<body>
+    <div *ngIf="productDetail">
+    <h1>Chi Tiết Sản Phẩm</h1>
+    <div class="product-detail-card">
+      <img [src]="productDetail.ImageUrl" alt="{{ productDetail.ProductName }}" style="max-width: 300px; height: auto;">
+      <h2>{{ productDetail.ProductName }}</h2>
+      <p><strong>Thương Hiệu:</strong> {{ productDetail.CategoryName}}</p>
+      <p><strong>Mô Tả:</strong> {{ productDetail.Description}}</p>
+       <p><strong>Giá:</strong> {{ productDetail.Price }} VND</p>
+      <p><strong>Số Lượng:</strong> {{ productDetail.Quantity }}</p>
+      <button [routerLink]="['/product-detail', productDetail.ProductId]" class="btn btn-primary">
+        Mua Hàng
+      </button>
+      <button [routerLink]="['/home']" class="btn btn-primary">
+        Quay Lại
+      </button>
+    </div>
+  </div>
+  <div *ngIf="!productDetail">
+    <p>Đang tải thông tin sản phẩm...</p>
+  </div>
+</body>
+</html>

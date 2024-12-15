@@ -73,10 +73,10 @@ export class SharedService {
     return this.http.put<any>(this.apiUrl+'/Danhmuc',val);
   }
 
-  xoaDanhMuc(val:any){
-    return this.http.delete<any>(this.apiUrl+'/Danhmuc/'+val);
+  xoaDanhMuc(DanhMucId: number){
+    return this.http.delete<any>(`${this.apiUrl}/Categories/${DanhMucId}`);
   }
-
+  
   taiAnh(val:any): Observable<any[]>{
     return this.http.get<any>(this.apiUrl);
   }
@@ -102,6 +102,9 @@ export class SharedService {
   // DeleteCustomer(customerId: number): Observable<any>{
   //   return this.http.delete<any>(`${this.apiUrl}/CustomerModels/DeleteCustomer/${customerId}`);
   // }
+  updateProduct(id: number, productData: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/Products/${id}`, productData);
+  }
   deleteProduct(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/Products/${id}`);
   }

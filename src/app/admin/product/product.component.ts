@@ -30,38 +30,19 @@ export class ProductComponent implements OnInit{
       }
     );
   }  
-  deleteProduct(ProductId: number): void {
-    // Hiển thị một hộp thoại xác nhận khi người dùng muốn xóa sản phẩm
+  
+   deleteProduct(id: number): void {
     if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')) {
-      // Gọi dịch vụ xóa sản phẩm với ID sản phẩm
-      this.service.deleteProduct(ProductId).subscribe({
-        next: (response) => {
-          // Nếu xóa thành công, hiển thị thông báo và cập nhật lại danh sách sản phẩm
+      this.service.deleteProduct(id).subscribe({
+        next: () => {
           alert('Xóa sản phẩm thành công!');
-          this.getAllProducts(); // Cập nhật lại danh sách sản phẩm sau khi xóa
+          this.getAllProducts(); // Cập nhật lại danh sách sau khi xóa
         },
         error: (error) => {
-          // Nếu có lỗi xảy ra, hiển thị thông báo lỗi
           console.error('Xóa sản phẩm thất bại:', error);
           alert('Xóa sản phẩm thất bại!');
         },
       });
     }
   }
-  
-  
-  //  deleteProduct(Product: any): void {
-  //   if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')) {
-  //     this.service.deleteProduct(Product.id).subscribe({
-  //       next: () => {
-  //         alert('Xóa sản phẩm thành công!');
-  //         this.getAllProducts(); // Cập nhật lại danh sách sau khi xóa
-  //       },
-  //       error: (error) => {
-  //         console.error('Xóa sản phẩm thất bại:', error);
-  //         alert('Xóa sản phẩm thất bại!');
-  //       },
-  //     });
-  //   }
-  // }
 }

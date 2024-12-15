@@ -6,28 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-      <div class="header-left">
-        <img src="logo.png" alt="TechCare Logo" class="logo">
-        <span>TechCare</span>
-      </div>
-      <div class="header-center">
-          <span class="icon search-icon">🔍</span> <!-- Biểu tượng kính lúp -->
-          <input type="text" placeholder="Nhập tên sản phẩm cần tìm"> 
-        <button>Tìm kiếm</button>
-      </div>
-      <div class="header-right">
-        <span>Hotline CSKH: 0989308888</span>
-        <!-- <button>Đăng nhập</button> -->
-        <button [routerLink]="['/register']">Đăng Kí</button>
-        
-      </div>
-    </header>
+  <app-header></app-header>
   
     <main>
       <aside>
         <ul>
-          <li><a routerLink="/admin-customer"> Quản lý khách hàng</a></li>
+          <li><a routerLink="/admin-customer" name=customer> Quản lý khách hàng</a></li>
           <li><a name="Pro" routerLink="/product">Quản lý sản phẩm  </a> </li>
           <li><a routerLink="/ds-d-muc">Quản lý danh mục</a></li>
           <li><a routerLink="#"> Quản lý đơn hàng</a></li>

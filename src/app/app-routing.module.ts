@@ -18,6 +18,8 @@ import { DsDMucComponent } from './admin/danh-muc/ds-d-muc/ds-d-muc.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { ProductComponent } from './admin/product/product.component';
 import { HeaderComponent } from './admin/header/header.component';
+import { ProductDetailComponent } from './home/product-detail/product-detail.component';
+import { EditProductComponent } from './admin/edit-product/edit-product.component';
 //import { ViewctCustomerComponent } from './admin/viewct-customer/viewct-customer.component';
 //import { DeleteCustomerComponent } from './admin/delete-customer/delete-customer.component';
 
@@ -39,7 +41,8 @@ const routes: Routes = [
   {path: 'ds-d-muc', component: DsDMucComponent },
   { path: 'product', component: ProductComponent},
   { path: 'add-product', component: AddProductComponent},
-  { path: 'edit-product/:id', component: EditCustomerComponent},
+  { path: 'edit-product/:id', component: EditProductComponent},
+  { path: 'product-detail/:id', component: ProductDetailComponent}
   // { path: 'header', component: HeaderComponent},
  
   

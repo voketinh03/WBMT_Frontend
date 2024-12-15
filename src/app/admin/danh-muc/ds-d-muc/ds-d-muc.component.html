@@ -8,22 +8,7 @@
 </head>
 
 <body>
-  <header>
-    <div class="header-left">
-      <img src="logo.png" alt="TechCare Logo" class="logo">
-      <span>TechCare</span>
-    </div>
-    <div class="header-center">
-        <span class="icon search-icon">🔍</span> <!-- Biểu tượng kính lúp -->
-        <input type="text" placeholder="Nhập tên sản phẩm cần tìm"> 
-      <button>Tìm kiếm</button>
-    </div>
-    <div class="header-right">
-      <span>Hotline CSKH: 0989308888</span>
-      <button>Đăng nhập</button>
-      <button>Đăng ký</button>
-    </div>
-  </header>
+  <app-header></app-header>
 
   <main>
     <aside>
@@ -35,9 +20,6 @@
         
       </ul>
     </aside>
-
-   
-
 
       <!-- <app-them-sua-d-muc [dMuc]="dMuc" *ngIf="dangThemSua"></app-them-sua-d-muc> -->
 <table class="table table-striped">
@@ -60,7 +42,7 @@
                 <button style="color:aqua" type="button" class="btn btn-light mr-1" (click)="chiTietDanhMuc(dMuc)">
                     Sửa
                 </button>
-                <button style="color:red" type="button" class="btn btn-light mr-1">
+                <button style="color:red" type="button" class="btn btn-light mr-1" (click)="xoaDanhMuc(item)">
                     Xoá
                 </button>
             </td>

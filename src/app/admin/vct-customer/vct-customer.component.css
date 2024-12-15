@@ -1,4 +1,19 @@
 /* Styling for the form */
+body {
+  /* Light teal background */
+ margin: 0;
+ font-family: Arial, sans-serif; /* Optional: set a font for the entire page */
+}
+
+/* Styling for the container */
+div.customer-details {
+ padding: 20px;
+ background-color: #deebec; /* Slightly transparent white for contrast */
+ border-radius: 10px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+ 
+ max-width: 100%;
+}
 form {
   max-width: 800px;
   margin: 20px auto;

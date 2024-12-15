@@ -1,1 +1,108 @@
-<p>edit-product works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sửa Sản Phẩm</title>
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Left Navigation Form -->
+    <div class="product-menu">
+        <h2>Danh sách sản phẩm</h2>
+        <ul>
+            <li><a routerLink="/product">Xem Danh Sách Sản Phẩm</a></li>
+            <li><a routerLink="/add-product">Thêm Sản Phẩm</a></li>
+        </ul>
+    </div>
+
+  <div class="product-edit-container">
+    <h2>Sửa Thông Tin Sản Phẩm</h2>
+  
+    <!-- Thông báo -->
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-error">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Form chỉnh sửa -->
+    <form #editProductForm="ngForm" (ngSubmit)="updateProduct(editProductForm)">
+      <label for="id">ID Sản phẩm:</label>
+      <input
+        type="text"
+        id="id"
+        name="id"
+        [(ngModel)]="productId"
+        readonly
+      />
+  
+      <label for="productName">Tên sản phẩm:</label>
+      <input
+        type="text"
+        id="productName"
+        name="productName"
+        [(ngModel)]="productData.productName"
+        required
+      />
+  
+      <label for="brandId">ID Thương hiệu:</label>
+      <input
+        type="number"
+        id="brandId"
+        name="brandId"
+        [(ngModel)]="productData.brandId"
+        required
+      />
+  
+      <label for="categoryId">ID Danh mục:</label>
+      <input
+        type="number"
+        id="categoryId"
+        name="categoryId"
+        [(ngModel)]="productData.categoryId"
+        required
+      />
+      <label for="price">Price:</label>
+<input
+  type="number"
+  id="price"
+  name="price"
+  [(ngModel)]="productData.price"
+  #price="ngModel"
+  pattern="^\d+(\.\d{1,2})?$"
+  required
+  placeholder="Nhập giá sản phẩm"
+  (input)="onPriceInput($event)"
+/>
+<div *ngIf="price.invalid && price.touched">
+  <small class="text-danger">Giá phải là một số hợp lệ, tối đa 2 chữ số thập phân.</small>
+</div>
+  
+      <label for="quantity">Số lượng:</label>
+      <input
+        type="number"
+        id="quantity"
+        name="quantity"
+        [(ngModel)]="productData.quantity"
+        required
+      />
+  
+      <label for="imageUrl">URL Hình ảnh:</label>
+      <input
+        type="url"
+        id="imageUrl"
+        name="imageUrl"
+        [(ngModel)]="productData.imageUrl"
+        required
+      />
+  
+      <button type="submit" class="btn-submit" [disabled]="editProductForm.invalid">
+        Cập nhật sản phẩm
+      </button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

@@ -1,1 +1,24 @@
-<h1 style="color: brown; font-size: 36px; text-align: center; font-family: 'Arial', sans-serif; padding: 20px;">Rồi vô đây chi hi hi</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khach Hang</title>
+</head>
+<body>
+       <!-- Product Info Cards on the Right   -->
+       <div class="product-cards">
+        <div *ngFor="let Productct of productListKH" class="product-info-card">
+        <img [src]="Productct.ImageUrl" alt="{{ Productct.ProductName }}" style="max-width: 100px; height: auto;">
+          <p> {{ Productct.ProductName }}</p>
+          <p><strong>Giá:</strong> {{ Productct.Price }} VND</p>
+           <div class="button-group">
+            <!-- Nút Xem Chi tiết -->
+            <button [routerLink]="['/product-detail', Productct.ProductId]" class="btn btn-primary">
+              Xem Chi tiết
+            </button>
+        </div>
+      </div>
+       </div>
+</body>
+</html>
