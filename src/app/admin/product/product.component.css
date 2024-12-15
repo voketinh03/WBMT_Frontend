@@ -128,7 +128,7 @@ body {
 /* Các nút sẽ được căn chỉnh hợp lý */
 .action-buttons .btn-info {
     background-color: #5bc0de;
-color: white;
+    color: white;
 }
 
 .action-buttons .btn-info:hover {
@@ -183,3 +183,39 @@ input[readonly] {
         display: block;
     }
 }
+.pagination {
+    display: flex; /* Sắp xếp các phần tử theo hàng ngang */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+    margin-top: 20px; /* Khoảng cách phía trên */
+  }
+  
+  .pagination button {
+    padding: 8px 16px; /* Kích thước nút */
+    font-size: 14px;
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+    color: #333;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .pagination button:hover {
+    background-color: #e9ecef;
+  }
+  
+  .pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background-color: #ddd;
+  }
+  
+  .pagination span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  
