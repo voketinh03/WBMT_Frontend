@@ -55,5 +55,6 @@
         <span>Trang {{ currentPage }} / {{ totalItems / itemsPerPage  }}</span>
         <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === (totalItems / itemsPerPage )">Tiếp</button>
       </div>
+      <app-footer></app-footer>
 </body>
 </html>

@@ -55,7 +55,7 @@ import { EditProductComponent } from './admin/edit-product/edit-product.componen
     EditProductComponent,
     HeaderComponent,
     FooterComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
     
     //DeleteCustomerComponent,
     

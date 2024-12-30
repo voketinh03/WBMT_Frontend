@@ -11,15 +11,17 @@
         <div class="header-left">
             <img src="https://photo2.tinhte.vn/data/attachment-files/2024/01/8232029_HP-Omen-Transcend-14-cover.jpg" alt="TechCare Logo" class="logo">
             <span>
-                <a [routerLink]="['/admin']">TechCare</a>
+                <a [routerLink]="['/home']">TechCare</a>
             </span>
         </div>
         <div class="header-center">
-            <span class="icon search-icon">🔍</span> <!-- Search Icon -->
-            <input type="text" placeholder="Nhập tên sản phẩm cần tìm">
-            <button>
-                <span class="icon"></span> Tìm kiếm
-            </button>
+            <input
+            type="text"
+            placeholder="Nhập tên sản phẩm cần tìm..."
+            [(ngModel)]="searchTerm"
+            class="search-input"
+          />
+          <button (click)="searchProducts()" class="search-btn">Search</button>
         </div>
         <div class="header-right">
             <span class="icon phone-icon">📞</span> Hotline CSKH: 0989308888

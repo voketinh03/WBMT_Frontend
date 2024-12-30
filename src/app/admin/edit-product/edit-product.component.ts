@@ -8,7 +8,7 @@ import { SharedService } from '../../shared.service';
   templateUrl: './edit-product.component.html',
   styleUrls: ['./edit-product.component.css']
 })
-export class EditProductComponent implements OnInit {
+export class EditProductComponent  implements OnInit {
   productId: number | null = null;
   productData: any = {
     productName: '',
@@ -28,72 +28,75 @@ export class EditProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Lấy ID từ URL
     this.productId = Number(this.route.snapshot.paramMap.get('id'));
     if (this.productId) {
+      console.log('Getting product details for ID:', this.productId); // Kiểm tra ID
       this.getProductDetails(this.productId);
+    } else {
+      this.errorMessage = 'ID sản phẩm không hợp lệ!';
     }
   }
-
+  
   getProductDetails(id: number): void {
     this.productService.getProductById(id).subscribe({
       next: (product) => {
+        console.log('Product details:', product);  // Kiểm tra dữ liệu trả về
         this.productData = {
-          productName: product.productName,
-          brandId: product.brandId,
-          categoryId: product.ategoryId,
-          price: product.price,
-          quantity: product.quantity,
-          imageUrl: product.imageUrl,
+          productName: product.ProductName,  // Đảm bảo rằng tên trường trong API là đúng
+          brandId: product.BrandId,
+          categoryId: product.CategoryId,
+          price: product.Price,
+          quantity: product.Quantity,
+          imageUrl: product.ImageUrl,
         };
       },
       error: (error) => {
-        console.error('Lỗi khi lấy thông tin sản phẩm:', error);
-      },
+        console.error('Error fetching product:', error);
+        this.errorMessage = 'Không thể tải thông tin sản phẩm. Vui lòng thử lại sau.';
+      }
     });
   }
-// Hàm xử lý giá nhập vào
-onPriceInput(event: any): void {
-  let inputValue = event.target.value;
 
-  // Remove all non-numeric characters except the decimal point
-  inputValue = inputValue.replace(/[^0-9.]/g, '');
+  // Hàm xử lý khi người dùng chỉnh sửa giá
+  onPriceInput(event: any): void {
+    let inputValue = event.target.value;
 
-  // Allow only one decimal point
-  const decimalCount = (inputValue.match(/\./g) || []).length;
-  if (decimalCount > 1) {
-    inputValue = inputValue.slice(0, inputValue.lastIndexOf('.'));
-  }
+    // Loại bỏ các ký tự không phải số, ngoại trừ dấu chấm
+    inputValue = inputValue.replace(/[^0-9.]/g, '');
 
-  // Limit to 2 decimal places
-  if (inputValue.includes('.')) {
-    const [integer, decimal] = inputValue.split('.');
-    if (decimal.length > 2) {
-      inputValue = `${integer}.${decimal.slice(0, 2)}`;
+    // Cho phép chỉ một dấu chấm
+    const decimalCount = (inputValue.match(/\./g) || []).length;
+    if (decimalCount > 1) {
+      inputValue = inputValue.slice(0, inputValue.lastIndexOf('.'));
     }
+
+    // Giới hạn chỉ 2 chữ số thập phân
+    if (inputValue.includes('.')) {
+      const [integer, decimal] = inputValue.split('.');
+      if (decimal.length > 2) {
+        inputValue = `${integer}.${decimal.slice(0, 2)}`;
+      }
+    }
+
+    // Cập nhật giá trị cho model
+    this.productData.price = inputValue;
+
+    // Đặt giá trị lại cho input
+    event.target.value = this.productData.price;
   }
 
-  // Update the model with the corrected value
-  this.productData.price = inputValue;
-
-  // Set the value back to the input element if needed
-  event.target.value = this.productData.price;
-}
-
-
+  // Hàm cập nhật sản phẩm
   updateProduct(form: NgForm): void {
-    // Check if the productId is valid and available
     if (!this.productId) {
       this.errorMessage = 'Sản phẩm không tồn tại hoặc không được xác định.';
       return;
     }
-  
+
     const { productName, brandId, categoryId, price, quantity, imageUrl } = this.productData;
     const updatePayload = { productName, brandId, categoryId, price, quantity, imageUrl };
-  
+
     this.productService.updateProduct(this.productId, updatePayload).subscribe({
       next: (response) => {
-        console.log('API Response:', response);
         this.successMessage = 'Sản phẩm đã được cập nhật thành công!';
         setTimeout(() => {
           this.router.navigate(['/product']);
@@ -101,7 +104,6 @@ onPriceInput(event: any): void {
       },
       error: (error) => {
         console.error('API Error:', error);
-  
         if (error.status === 404) {
           this.errorMessage = 'Sản phẩm không tồn tại.';
         } else if (error.status === 500) {
@@ -112,4 +114,4 @@ onPriceInput(event: any): void {
       },
     });
   }
-} 
+}

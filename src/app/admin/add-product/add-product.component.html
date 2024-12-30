@@ -9,140 +9,140 @@
   <app-header></app-header>
   <!-- add-product.component.html -->
   <div class="admin-container">
-    <!-- Left Navigation Form -->
+    <!-- Bảng điều hướng bên trái -->
     <div class="product-menu">
-        <h2>Quản Lý Sản Phẩm</h2>
-        <ul>
-            <li><a routerLink="/product">Xem Danh Sách Sản Phẩm</a></li>
-            <li><a routerLink="/add-product">Thêm Sản Phẩm</a></li>
-        </ul>
+      <h2>Quản Lý Sản Phẩm</h2>
+      <ul>
+        <li><a routerLink="/product">Xem Danh Sách Sản Phẩm</a></li>
+        <li><a routerLink="/add-product">Thêm Sản Phẩm</a></li>
+      </ul>
     </div>
-
-    <!-- Product Info Cards on the Right -->
+  
+    <!-- Form thêm sản phẩm -->
     <div class="product-cards">
-        <form #productForm="ngForm" (ngSubmit)="addProduct()" novalidate>
+      <form (ngSubmit)="addProduct()" #productForm="ngForm" novalidate>
+        <div>
           <label for="productName">Tên Sản Phẩm:</label>
           <input
             type="text"
             id="productName"
             [(ngModel)]="productName"
             name="productName"
+            #productNameField="ngModel"
             required
             minlength="3"
-            #productNameCtrl="ngModel"
+            [ngClass]="{'is-invalid': productNameField.invalid && productNameField.touched}"
           />
-          <div *ngIf="productNameCtrl.invalid && productNameCtrl.touched" class="error">
-            <small *ngIf="productNameCtrl.errors">Tên sản phẩm không được để trống.</small>
-            <small *ngIf="productNameCtrl.errors">
-              Tên sản phẩm phải có ít nhất 3 ký tự.
-            </small>
+          <div *ngIf="productNameField.invalid && productNameField.touched" class="error">
+            <small *ngIf="productNameField.errors">Tên sản phẩm là bắt buộc.</small>
+            <small *ngIf="productNameField.errors">Tên sản phẩm phải có ít nhất 3 ký tự.</small>
           </div>
-          <br /><br />
-        
-          <label for="brandId">ID Thương Hiệu:</label>
-          <input
-            type="number"
+        </div>
+    
+        <div>
+          <label for="brandId">Thương Hiệu:</label>
+          <select
             id="brandId"
             [(ngModel)]="brandId"
             name="brandId"
-            min="1"
+            #brandField="ngModel"
             required
-            #brandIdCtrl="ngModel"
-          />
-          <div *ngIf="brandIdCtrl.invalid && brandIdCtrl.touched" class="error">
-            <small *ngIf="brandIdCtrl.errors">ID Brand không được để trống.</small>
-            <small *ngIf="brandIdCtrl.errors">ID Brand phải lớn hơn 0.</small>
+            (change)="onBrandSelect()"
+            [ngClass]="{'is-invalid': brandField.invalid && brandField.touched}"
+          >
+            <option value="" disabled>Chọn Thương Hiệu</option>
+            <option *ngFor="let brand of brandList" [value]="brand.BrandId">
+              {{ brand.BrandName }}
+            </option>
+          </select>
+          <div *ngIf="brandField.invalid && brandField.touched" class="error">
+            <small *ngIf="brandField.errors">Thương hiệu là bắt buộc.</small>
           </div>
-          <br /><br />
-        
+        </div>
+    
+        <div>
           <label for="categoryId">ID Danh Mục:</label>
           <input
             type="number"
             id="categoryId"
             [(ngModel)]="categoryId"
             name="categoryId"
+            #categoryField="ngModel"
             min="1"
             required
-            #categoryIdCtrl="ngModel"
+            [ngClass]="{'is-invalid': categoryField.invalid && categoryField.touched}"
           />
-          <div *ngIf="categoryIdCtrl.invalid && categoryIdCtrl.touched" class="error">
-            <small *ngIf="categoryIdCtrl.errors">ID Category không được để trống.</small>
-            <small *ngIf="categoryIdCtrl.errors">ID Category phải lớn hơn 0.</small>
+          <div *ngIf="categoryField.invalid && categoryField.touched" class="error">
+            <small *ngIf="categoryField.errors">ID danh mục là bắt buộc.</small>
+            <small *ngIf="categoryField.errors">ID danh mục phải lớn hơn 0.</small>
           </div>
-          <br /><br />
-        
+        </div>
+    
+        <div>
           <label for="price">Giá:</label>
           <input
-            type="text"
+            type="number"
             id="price"
             [(ngModel)]="price"
             name="price"
-            min="1"
-            step="0.01"
+            #priceField="ngModel"
             required
-            #priceCtrl="ngModel"
-            (keyup)="formatPrice()"
+            min="1"
+            [ngClass]="{'is-invalid': priceField.invalid && priceField.touched}"
           />
-          <div *ngIf="priceCtrl.invalid && priceCtrl.touched" class="error">
-            <small *ngIf="priceCtrl.errors">Giá không được để trống.</small>
-            <small *ngIf="priceCtrl.errors">Giá phải lớn hơn 0.</small>
+          <div *ngIf="priceField.invalid && priceField.touched" class="error">
+            <small *ngIf="priceField.errors">Giá là bắt buộc.</small>
+            <small *ngIf="priceField.errors">Giá phải lớn hơn 0.</small>
           </div>
-          
-          <!-- Display the formatted price -->
-          <br /><br />
-          <span id="price-convert">{{ formattedPrice }}</span>
-        
+        </div>
+    
+        <div>
           <label for="quantity">Số lượng:</label>
           <input
-            type="text"
+            type="number"
             id="quantity"
             [(ngModel)]="quantity"
             name="quantity"
+            #quantityField="ngModel"
             min="1"
             required
-            #quantityCtrl="ngModel"
+            [ngClass]="{'is-invalid': quantityField.invalid && quantityField.touched}"
           />
-          <div *ngIf="quantityCtrl.invalid && quantityCtrl.touched" class="error">
-            <small *ngIf="quantityCtrl.errors">Số lượng không được để trống.</small>
-            <small *ngIf="quantityCtrl.errors">Số lượng phải lớn hơn 0.</small>
+          <div *ngIf="quantityField.invalid && quantityField.touched" class="error">
+            <small *ngIf="quantityField.errors">Số lượng là bắt buộc.</small>
+            <small *ngIf="quantityField.errors">Số lượng phải lớn hơn 0.</small>
           </div>
-          <br /><br />
-        
+        </div>
+    
+        <div>
           <label for="imageUrl">URL Hình ảnh:</label>
           <input
             type="url"
             id="imageUrl"
             [(ngModel)]="imageUrl"
             name="imageUrl"
+            #imageUrlField="ngModel"
             required
-            pattern="https?://.+"
-            #imageUrlCtrl="ngModel"
+            [ngClass]="{'is-invalid': imageUrlField.invalid && imageUrlField.touched}"
           />
-          <div *ngIf="imageUrlCtrl.invalid && imageUrlCtrl.touched" class="error">
-            <small *ngIf="imageUrlCtrl.errors">URL hình ảnh không được để trống.</small>
-            <small *ngIf="imageUrlCtrl.errors">URL hình ảnh không hợp lệ.</small>
+          <div *ngIf="imageUrlField.invalid && imageUrlField.touched" class="error">
+            <small *ngIf="imageUrlField.errors">URL hình ảnh là bắt buộc.</small>
+            <small *ngIf="imageUrlField.errors">URL hình ảnh không hợp lệ.</small>
           </div>
-          <br /><br />
-        
-          <button
-            type="submit"
-            class="btn-submit"
-            [disabled]="productForm.invalid"
-          >
-            Thêm Sản Phẩm
-          </button>
-         <!-- Banner thông báo lỗi -->
-         <div *ngIf="errorMessage" class="alert alert-error">
-          {{ errorMessage }}
         </div>
-        
-        <!-- Banner thông báo thành công -->
+    
+        <button type="submit" [disabled]="productForm.invalid">Thêm Sản Phẩm</button>
+    
         <div *ngIf="successMessage" class="alert alert-success">
           {{ successMessage }}
         </div>
-          </form>
-      </div>
-   </div>
+    
+        <div *ngIf="errorMessage" class="alert alert-error">
+          {{ errorMessage }}
+        </div>
+      </form>
+    </div>
+  </div>
    <app-footer></app-footer>
 </body>
 </html>

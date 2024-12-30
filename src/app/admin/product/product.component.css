@@ -1,56 +1,53 @@
-/* Đặt lại kiểu dáng mặc định của các phần tử */
+/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Định dạng cho toàn bộ trang */
+/* General page styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f7fc;
+    background-color: #f8f9fc;
     color: #333;
     line-height: 1.6;
 }
 
-/* Định dạng tiêu đề trang */
+/* Page title styling */
 .page-title {
     text-align: center;
     margin: 20px 0;
     color: #333;
-    font-size: 2.2rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-/* Container của trang Admin */
+/* Admin container for flex layout */
 .admin-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Switch to vertical layout */
     gap: 20px;
     padding: 20px;
-    flex-wrap: wrap; /* Cho phép các phần tử xếp chồng khi màn hình nhỏ */
 }
 
-/* Định dạng menu bên trái */
+/* Left navigation menu styling */
 .product-menu {
-    width: 30%; /* Chỉnh lại thành 30% */
-    background-color: #fff;
+    width: 100%; /* Full width on top of the product list */
+    background-color: #ffffff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    min-width: 250px; /* Đảm bảo độ rộng tối thiểu */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-menu h2 {
     margin-bottom: 20px;
-    color: #4CAF50;
+    color: #3aaf5d;
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-/* Các liên kết trong menu */
 .product-menu ul {
-    list-style-type: none;
+    list-style: none;
 }
 
 .product-menu ul li {
@@ -59,163 +56,155 @@ body {
 
 .product-menu ul li a {
     text-decoration: none;
-    color: #333;
-    font-size: 1rem;
+    color: #555;
+    font-size: 0.95rem;
     display: block;
-    padding: 12px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
 .product-menu ul li a:hover {
-    background-color: #4CAF50;
-    color: #fff;
+    background-color: #3aaf5d;
+    color: #ffffff;
 }
 
-/* Định dạng bảng thông tin sản phẩm */
+/* Product table container */
 .product-cards {
-    width: 70%; /* Chỉnh lại thành 70% */
-    flex-grow: 1; /* Cho phép phần này mở rộng khi có không gian */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    width: 100%; /* Full width below the menu */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
 }
 
-/* Định dạng bảng */
+/* Product table styling */
 .product-table {
     width: 100%;
-    table-layout: auto; /* Để bảng có thể điều chỉnh kích thước cột linh hoạt */
     border-collapse: collapse;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-/* Đảm bảo các thẻ th và td có padding và căn giữa */
-.product-table th, .product-table td {
-    padding: 12px;
     text-align: center;
+    table-layout: auto; /* Ensure table columns are sized based on content */
+    min-width: 800px; /* Prevent shrinking for small screens */
+}
+
+.product-table th, .product-table td {
+    padding: 10px;
     border: 1px solid #ddd;
-    word-wrap: break-word; /* Giúp ngắt chữ khi quá dài */
 }
 
-/* Căn chỉnh cột tiêu đề với màu nền */
 .product-table th {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 1.1rem;
+    background-color: #3aaf5d;
+    color: #ffffff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
-/* Căn chỉnh các nút hành động */
+.product-table td {
+    font-size: 0.9rem;
+    color: #555;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.product-table img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Action buttons styling */
 .action-buttons {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 10px;
-    align-items: center; /* Căn giữa các nút */
 }
 
 .action-buttons .btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 6px 12px;
+    font-size: 0.85rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    min-width: 100px;
-}
-
-/* Các nút sẽ được căn chỉnh hợp lý */
-.action-buttons .btn-info {
-    background-color: #5bc0de;
-    color: white;
-}
-
-.action-buttons .btn-info:hover {
-    background-color: #31b0d5;
 }
 
 .action-buttons .btn-primary {
-    background-color: #337ab7;
-    color: white;
+    background-color: #007bff;
+    color: #ffffff;
 }
 
 .action-buttons .btn-primary:hover {
-    background-color: #286090;
+    background-color: #0056b3;
 }
 
 .action-buttons .btn-danger {
-    background-color: #d9534f;
-    color: white;
+    background-color: #dc3545;
+    color: #ffffff;
 }
 
 .action-buttons .btn-danger:hover {
-    background-color: #c9302c;
+    background-color: #c82333;
 }
 
-input[readonly] {
-    background-color: #31b786;
-    border: 1px solid #ccc;
-    color: #555;
-    cursor: not-allowed;
-}
-
-/* Đảm bảo bảng không bị xuống dòng khi có nhiều cột */
-@media (max-width: 1024px) {
-    .product-table th, .product-table td {
-        font-size: 0.9rem;
-        padding: 10px;
-    }
-    .product-table {
-        width: 100%;
-        table-layout: auto; /* Điều chỉnh bảng linh hoạt */
-    }
-}
-
-/* Tạo không gian thoải mái hơn cho các sản phẩm khi màn hình nhỏ */
-@media (max-width: 768px) {
-    .product-menu {
-        width: 100%; /* Chiếm toàn bộ chiều rộng */
-        margin-bottom: 20px; /* Tạo khoảng cách dưới */
-    }
-    .product-cards {
-        width: 100%;
-        display: block;
-    }
-}
+/* Pagination section styling */
 .pagination {
-    display: flex; /* Sắp xếp các phần tử theo hàng ngang */
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    gap: 10px; /* Khoảng cách giữa các phần tử */
-    margin-top: 20px; /* Khoảng cách phía trên */
-  }
-  
-  .pagination button {
-    padding: 8px 16px; /* Kích thước nút */
-    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 8px 14px;
+    font-size: 0.85rem;
     border: 1px solid #ccc;
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     color: #333;
     cursor: pointer;
     border-radius: 4px;
     transition: all 0.3s ease;
-  }
-  
-  .pagination button:hover {
-    background-color: #e9ecef;
-  }
-  
-  .pagination button:disabled {
+}
+
+.pagination button:hover {
+    background-color: #f1f1f1;
+}
+
+.pagination button:disabled {
     cursor: not-allowed;
-    opacity: 0.6;
-    background-color: #ddd;
-  }
-  
-  .pagination span {
-    font-size: 16px;
+    opacity: 0.5;
+    background-color: #e9ecef;
+}
+
+.pagination span {
+    font-size: 1rem;
     font-weight: bold;
     color: #333;
-  }
-  
-  
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .product-menu {
+        width: 100%;
+    }
+    .product-cards {
+        width: 100%;
+    }
+    .action-buttons .btn {
+        font-size: 0.8rem; /* Smaller buttons for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.8rem;
+    }
+    .product-table {
+        min-width: 600px; /* Adjust minimum width for smaller screens */
+    }
+    .product-table th, .product-table td {
+        font-size: 0.85rem;
+    }
+}

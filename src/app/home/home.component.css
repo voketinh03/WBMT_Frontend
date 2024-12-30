@@ -1,77 +1,65 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.search-box {
-    width: 80%;
-    max-width: 600px;
-    padding: 10px;
-    margin: 20px auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.product-cards {
+    height: 100vh; /* Ensures the body takes up the full height */
+    width: 100vw; /* Ensures the body takes up the full width */
+  }
+  
+  .product-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 30px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-}
-
-.product-info-card {
+  }
+  
+  .product-info-card {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.product-info-card:hover {
+  }
+  
+  .product-info-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.product-info-card img {
+  }
+  
+  .product-info-card img {
     max-width: 100%;
     height: auto;
     margin-bottom: 15px;
     border-radius: 5px;
     border: 1px solid #ddd;
-}
-
-.product-info-card p {
+  }
+  
+  .product-info-card p {
     margin: 10px 0;
     color: #333;
-}
-
-.product-info-card p strong {
+  }
+  
+  .product-info-card p strong {
     color: #000;
-}
-
-.button-group {
-    margin-top: 10px;
-}
-
-.button-group .btn {
-    padding: 10px 20px;
-    font-size: 14px;
+  }
+  
+  .button-group {
+    margin-top: 15px;
+  }
+  
+  .button-group .btn {
+    padding: 12px 25px;
+    font-size: 16px;
     font-weight: bold;
     color: #ffffff;
     background-color: #007bff;
@@ -82,8 +70,51 @@ body {
     text-decoration: none;
     display: inline-block;
     transition: background-color 0.3s;
-}
-
-.button-group .btn:hover {
+  }
+  
+  .button-group .btn:hover {
     background-color: #0056b3;
-}
+  }
+  
+  /* No products found message */
+  .no-products-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d9534f;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center; /* Căn giữa phân trang */
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px; /* Khoảng cách giữa các nút */
+  }
+  
+  .pagination button {
+    background-color: #007bff; /* Màu xanh dương */
+    color: white; /* Màu chữ trắng */
+    border: none;
+    border-radius: 5px; /* Góc bo tròn */
+    padding: 10px 20px; /* Khoảng cách bên trong */
+    font-size: 16px; /* Kích thước chữ */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng hover */
+  }
+  
+  .pagination button:hover {
+    background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
+    transform: scale(1.05); /* Tăng kích thước nhẹ khi hover */
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc; /* Màu xám cho nút bị vô hiệu hóa */
+    cursor: not-allowed; /* Con trỏ hiển thị "không được phép" */
+  }
+  
+  .pagination span {
+    font-size: 16px; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+  }
+  

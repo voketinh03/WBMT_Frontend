@@ -6,6 +6,7 @@
     <title>Khach Hang</title>
 </head>
 <body>
+  <app-header></app-header>
     <div *ngIf="productDetail">
     <h1>Chi Tiết Sản Phẩm</h1>
     <div class="product-detail-card">
@@ -26,6 +27,7 @@
   <div *ngIf="!productDetail">
     <p>Đang tải thông tin sản phẩm...</p>
   </div>
+  <app-footer></app-footer>
 </body>
 </html> 
 

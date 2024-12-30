@@ -108,4 +108,7 @@ export class SharedService {
   deleteProduct(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/Products/${id}`);
   }
+  getBrands(): Observable<any> {
+    return this.http.get<any>(this.apiUrl+'/Brands');
+  }
 }

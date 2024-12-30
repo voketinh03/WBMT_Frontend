@@ -6,20 +6,35 @@
     <title>Khach Hang</title>
 </head>
 <body>
-       <!-- Product Info Cards on the Right   -->
-       <div class="product-cards">
-        <div *ngFor="let Productct of productListKH" class="product-info-card">
-        <img [src]="Productct.ImageUrl" alt="{{ Productct.ProductName }}" style="max-width: 100px; height: auto;">
-          <p> {{ Productct.ProductName }}</p>
-          <p><strong>Giá:</strong> {{ Productct.Price }} VND</p>
-           <div class="button-group">
-            <!-- Nút Xem Chi tiết -->
-            <button [routerLink]="['/product-detail', Productct.ProductId]" class="btn btn-primary">
-              Xem Chi tiết
-            </button>
-        </div>
-      </div>
-       </div>
+  <app-header></app-header>
 
+  <!-- Product Info Cards -->
+  <div class="product-cards">
+    
+      <!-- Hiển thị thông báo nếu không tìm thấy sản phẩm -->
+      <div *ngIf="pagedProducts.length === 0 && searchQuery">Không tìm thấy sản phẩm nào</div>
+      
+
+      <!-- Hiển thị danh sách sản phẩm tìm kiếm -->
+      <div *ngFor="let Productct of pagedProducts" class="product-info-card">
+          <img [src]="Productct.ImageUrl" alt="{{ Productct.ProductName }}" style="max-width: 100px; height: auto;">
+          <p>{{ Productct.ProductName }}</p>
+          <p><strong>Giá:</strong> {{ Productct.Price }} VND</p>
+          <div class="button-group">
+              <!-- Nút Xem Chi tiết -->
+              <button [routerLink]="['/product-detail', Productct.ProductId]" class="btn btn-primary">
+                  Xem Chi tiết
+              </button>
+          </div>
+      </div>
+  </div>
+
+    <!-- Phân trang -->
+    <div class="pagination">
+      <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Trước</button>
+      <span>Trang {{ currentPage }} / {{ totalPages }}</span>
+      <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">Tiếp</button>
+  </div>
+  <app-footer></app-footer>
 </body>
 </html> 

@@ -1,15 +1,4 @@
 /* Cơ bản */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7f6; /* Màu nền sáng, dễ nhìn */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #333;
-}
 
 h1 {
     text-align: center;
@@ -29,50 +18,58 @@ strong {
 
 /* Card chi tiết sản phẩm */
 .product-detail-card {
-    background-color: #fff; /* Màu trắng sáng */
+    background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 80%;
+    width: 90%; /* Chiếm 90% chiều rộng màn hình */
     max-width: 800px;
-    margin: 20px;
+    margin: 40px auto; /* Căn giữa card */
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #ddd; /* Viền mảnh, làm cho card thêm tinh tế */
-}
-
-.product-detail-card:hover {
+    border: 1px solid #ddd;
+  }
+  
+  .product-detail-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.product-detail-card img {
+  }
+  
+  .product-detail-card img {
     border-radius: 8px;
     margin-bottom: 20px;
     transition: transform 0.3s ease;
-    border: 4px solid #f4f7f6; /* Viền cho ảnh */
-}
-
-.product-detail-card img:hover {
+    border: 4px solid #f4f7f6;
+    max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng card */
+    height: auto;
+  }
+  
+  .product-detail-card img:hover {
     transform: scale(1.05);
-}
-
-/* Phần text trong card */
-.product-detail-card p {
+  }
+  
+  .product-detail-card h1 {
+    text-align: center;
+    color: #1E7E34;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .product-detail-card p {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 15px;
-    color: #555; /* Màu chữ đậm hơn để dễ đọc */
+    color: #555;
     transition: color 0.3s ease;
-}
-
-.product-detail-card p:hover {
-    color: #1E7E34; /* Chuyển sang màu xanh lá cây khi hover */
-}
-
-/* Nút */
-button {
-    background-color: #1E7E34; /* Màu xanh lá cây cho nút */
+  }
+  
+  .product-detail-card p:hover {
+    color: #1E7E34;
+  }
+  
+  /* Nút */
+  button {
+    background-color: #1E7E34;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -81,14 +78,14 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     margin: 10px 5px;
-    text-transform: uppercase; /* Chữ in hoa cho nút */
-}
-
-button:hover {
-    background-color: #166c2d; /* Màu tối hơn khi hover */
+    text-transform: uppercase;
+  }
+  
+  button:hover {
+    background-color: #166c2d;
     transform: scale(1.05);
-}
-
+  }
+  
 /* Loading text */
 div > p {
     font-size: 18px;

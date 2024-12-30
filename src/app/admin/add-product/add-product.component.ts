@@ -9,112 +9,137 @@ import { SharedService } from '../../shared.service';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent {
-  productForm:any;
-    productName: string = '';
-    brandId: number | null = null;
-    categoryId: number | null = null;
-    price: number | null = null; // Sử dụng string để chấp nhận các định dạng số lớn
-    quantity: number | null = null;
-    imageUrl: string = '';
-  
-    errorMessage: string | null = null; // Lưu thông báo lỗi
-    successMessage: string | null = null; // Lưu thông báo thành công
-    formattedPrice: string = '';
-    
-  
-    constructor(private productService: SharedService, private router: Router) {}
-  
-    addProduct(): void {
-      // Reset lại thông báo trước khi kiểm tra
-      this.errorMessage = null;
-      this.successMessage = null;
-  
-      // Kiểm tra điều kiện ràng buộc
-      if (!this.productName || this.productName.trim().length < 3) {
-        this.errorMessage = 'Tên sản phẩm phải có ít nhất 3 ký tự.';
-        return;
-      }
-  
-      if (!this.brandId || this.brandId <= 0) {
-        this.errorMessage = 'ID Brand phải lớn hơn 0.';
-        return;
-      }
-  
-      if (!this.categoryId || this.categoryId <= 0) {
-        this.errorMessage = 'ID Category phải lớn hơn 0.';
-        return;
-      }
-  
-      if (this.quantity === null || this.quantity <= 0) {
-        this.errorMessage = 'Số lượng sản phẩm phải lớn hơn 0.';
-        return;
-      }
-  
-      if (!this.imageUrl || !/^https?:\/\/.+$/.test(this.imageUrl)) {
-        this.errorMessage = 'URL hình ảnh không hợp lệ.';
-        return;
-      }
-  
-      // Nếu không có lỗi, gửi yêu cầu thêm sản phẩm
-      const product = {
-        productName: this.productName.trim(),
-        brandId: this.brandId,
-        categoryId: this.categoryId,
-        price: this.price, // Loại bỏ dấu chấm trước khi parse
-        quantity: this.quantity,
-        imageUrl: this.imageUrl.trim(),
-      };
-  
-      this.productService.addProduct(product).subscribe({
-        next: (response: any) => {
-          this.successMessage = response.message || 'Sản phẩm đã được thêm thành công!';
-          this.errorMessage = null;
-          this.resetForm();
-  
-          // Ẩn thông báo thành công sau 3 giây
-          setTimeout(() => {
-            this.successMessage = null;
-          }, 5000);
-  
-          setTimeout(() => {
-            this.router.navigate(['/product']); // Điều hướng về danh sách sản phẩm
-          }, 2000);
-        },
-        error: (error: any) => {
-          this.errorMessage = error.error.message || 'Có lỗi xảy ra khi thêm sản phẩm. Vui lòng thử lại!';
-          this.successMessage = null;
-  
-          // Ẩn thông báo lỗi sau 3 giây
-          setTimeout(() => {
-            this.errorMessage = null;
-          }, 3000);
-        },
-      });
-    }
-  
-    private resetForm(): void {
-      this.productName = '';
-      this.brandId = null;
-      this.categoryId = null;
-      this.price = null;
-      this.quantity = null;
-      this.imageUrl = '';
-    }
-  
-    formatPrice() {
-        if (this.price) {
-          this.formattedPrice = new Intl.NumberFormat('vn-VN', {
-            style: 'currency',
-            currency: 'VND'
-          }).format(this.price);
+  formattedPrice: string = '';
+  productName: string = '';
+  brandId: number | null = null;
+  selectedBrandName: string = '';
+  categoryId: number | null = null;
+  price: number | null = null;
+  quantity: number | null = null;
+  imageUrl: string = '';
+
+  errorMessage: string | null = null;
+  successMessage: string | null = null;
+  brandList: any[] = [];
+  loading: boolean = false;
+
+  constructor(private productService: SharedService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.loading = true;
+
+    // Lấy danh sách thương hiệu từ API
+    this.productService.getBrands().subscribe(
+      (response) => {
+        if (response && Array.isArray(response.data)) {
+          this.brandList = response.data;
         } else {
-          this.formattedPrice = '';
+          console.error('Dữ liệu không hợp lệ: ', response);
         }
+        this.loading = false;
+      },
+      (error) => {
+        console.error('Có lỗi xảy ra khi tải dữ liệu:', error);
+        this.loading = false;
       }
-  
-    // Hàm kiểm tra định dạng giá hợp lệ
-    private isValidPriceFormat(value: string): boolean {
-      const priceRegex = /^\d{1,3}(\.\d{3})*$/; // Định dạng: "1.000.000"
-      return priceRegex.test(value);
+    );
+  }
+
+  onBrandSelect(): void {
+    // Lấy tên thương hiệu khi người dùng chọn
+    const selectedBrand = this.brandList.find(brand => brand.BrandId === this.brandId);
+    if (selectedBrand) {
+      this.selectedBrandName = selectedBrand.BrandName;  // Lưu tên thương hiệu đã chọn
     }
   }
+
+  addProduct(): void {
+    this.errorMessage = null;
+    this.successMessage = null;
+
+    // Kiểm tra dữ liệu đầu vào
+    if (!this.productName || this.productName.trim().length < 3) {
+      this.errorMessage = 'Tên sản phẩm phải có ít nhất 3 ký tự.';
+      return;
+    }
+
+    if (!this.brandId || this.brandId <= 0) {
+      this.errorMessage = 'ID Thương hiệu phải lớn hơn 0.';
+      return;
+    }
+
+    if (!this.categoryId || this.categoryId <= 0) {
+      this.errorMessage = 'ID Danh mục phải lớn hơn 0.';
+      return;
+    }
+
+    if (this.price === null || this.price <= 0) {
+      this.errorMessage = 'Giá sản phẩm phải lớn hơn 0.';
+      return;
+    }
+
+    if (this.quantity === null || this.quantity <= 0) {
+      this.errorMessage = 'Số lượng sản phẩm phải lớn hơn 0.';
+      return;
+    }
+
+    if (!this.imageUrl || !/^https?:\/\/.+$/.test(this.imageUrl)) {
+      this.errorMessage = 'URL hình ảnh không hợp lệ.';
+      return;
+    }
+
+    const product = {
+      productName: this.productName.trim(),
+      brandId: this.brandId,
+      categoryId: this.categoryId,
+      price: this.price,
+      quantity: this.quantity,
+      imageUrl: this.imageUrl.trim()
+    };
+
+    this.productService.addProduct(product).subscribe({
+      next: (response: any) => {
+        if (response.message === 'Tên sản phẩm đã tồn tại trong cơ sở dữ liệu.') {
+          this.errorMessage = response.message;
+          return;
+        }
+        this.successMessage = response.message || 'Sản phẩm đã được thêm thành công!';
+        this.errorMessage = null;
+
+        setTimeout(() => {
+          this.successMessage = null;
+          this.router.navigate(['/product']);
+        }, 2000);
+      },
+      error: (error: any) => {
+        this.errorMessage = error.error.message || 'Có lỗi xảy ra khi thêm sản phẩm. Vui lòng thử lại!';
+        this.successMessage = null;
+
+        setTimeout(() => {
+          this.errorMessage = null;
+        }, 3000);
+      }
+    });
+  }
+
+  private resetForm(): void {
+    this.productName = '';
+    this.brandId = null;
+    this.selectedBrandName = '';
+    this.categoryId = null;
+    this.price = null;
+    this.quantity = null;
+    this.imageUrl = '';
+  }
+
+  formatPrice() {
+    if (this.price) {
+      this.formattedPrice = new Intl.NumberFormat('vn-VN', {
+        style: 'currency',
+        currency: 'VND'
+      }).format(this.price);
+    } else {
+      this.formattedPrice = '';
+    }
+  }
+}

@@ -7,6 +7,7 @@
   <title>Sửa Sản Phẩm</title>
 </head>
 <body>
+  <app-header></app-header>
   <div class="admin-container">
     <!-- Left Navigation Form -->
     <div class="product-menu">
@@ -29,7 +30,7 @@
     </div>
   
     <!-- Form chỉnh sửa -->
-    <form #editProductForm="ngForm" (ngSubmit)="updateProduct(editProductForm)">
+    <!-- <form #editProductForm="ngForm" (ngSubmit)="updateProduct(editProductForm)">
       <label for="id">ID Sản phẩm:</label>
       <input
         type="text"
@@ -102,8 +103,68 @@
       <button type="submit" class="btn-submit" [disabled]="editProductForm.invalid">
         Cập nhật sản phẩm
       </button>
+    </form> -->
+    <form #editProductForm="ngForm" (ngSubmit)="updateProduct(editProductForm)">
+      <label for="productName">Tên sản phẩm:</label>
+      <input
+        type="text"
+        id="productName"
+        name="productName"
+        [(ngModel)]="productData.productName"
+        required
+      />
+    
+      <label for="brandId">ID Thương hiệu:</label>
+      <input
+        type="number"
+        id="brandId"
+        name="brandId"
+        [(ngModel)]="productData.brandId"
+        required
+      />
+    
+      <label for="categoryId">ID Danh mục:</label>
+      <input
+        type="number"
+        id="categoryId"
+        name="categoryId"
+        [(ngModel)]="productData.categoryId"
+        required
+      />
+    
+      <label for="price">Giá:</label>
+      <input
+        type="number"
+        id="price"
+        name="price"
+        [(ngModel)]="productData.price"
+        required
+      />
+    
+      <label for="quantity">Số lượng:</label>
+      <input
+        type="number"
+        id="quantity"
+        name="quantity"
+        [(ngModel)]="productData.quantity"
+        required
+      />
+    
+      <label for="imageUrl">URL Hình ảnh:</label>
+      <input
+        type="url"
+        id="imageUrl"
+        name="imageUrl"
+        [(ngModel)]="productData.imageUrl"
+        required
+      />
+    
+      <button type="submit" class="btn-submit" [disabled]="editProductForm.invalid">
+        Cập nhật sản phẩm
+      </button>
     </form>
   </div>
 </div>
+<app-footer></app-footer>
 </body>
 </html>
