@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SharedService } from '../../shared.service';
-import { ActivatedRoute } from '@angular/router'; // Nhập ActivatedRoute
+import { ActivatedRoute } from '@angular/router';
 
-interface Books {
+interface SanPham {
   id: number;
-  title: string; // Đã sửa lỗi chính tả từ "tittle" thành "title"
-  description?: string; // Thuộc tính mô tả tùy chọn
+  title: string;
+  description?: string;
   price: number;
 }
 
@@ -16,70 +16,66 @@ interface Books {
 })
 export class ThemSuaBookComponent implements OnInit {
 
-  Sach: Books = {
+  sanPham: SanPham = {
     id: 0,
     title: '',
     description: '',
     price: 0
   };
 
-  @Input() book: Books | null = null; // Sử dụng null để chỉ định rằng book có thể không tồn tại
-  isEditing: boolean = false; // Biến để xác định trạng thái
+  @Input() SanPham: SanPham | null = null;
+  isEditing: boolean = false;
 
-  constructor(private service: SharedService, private route: ActivatedRoute) { } // Tiêm ActivatedRoute
+  constructor(private service: SharedService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
-    // Kiểm tra xem book có hợp lệ không
-    if (this.book ) {
-      this.Sach.id = this.book.id;
-      this.Sach.title = this.book.title;
-      this.Sach.description = this.book.description;
-      this.Sach.price = this.book.price;
+    // Kiểm tra nếu SanPham được truyền từ component cha
+    if (this.SanPham) {
+      this.sanPham = { ...this.SanPham }; // Sao chép dữ liệu để tránh sửa trực tiếp vào input
+      this.isEditing = true;
+    }
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (id && !this.SanPham) {
+      this.loadBookDetails(id); // Tải sản phẩm khi có ID trong URL
     }
   }
 
   loadBookDetails(id: number): void {
-      this.service.getBookById(id).subscribe(book => {
-      this.Sach = book; // Giả sử cấu trúc của book phù hợp với interface Books
-      console.log(this.Sach);
-    }, error => {
-      console.error('Lỗi khi tải thông tin sách:', error);
+    this.service.getSachById(id).subscribe((sanPham: SanPham) => {
+      this.sanPham = sanPham;
+      console.log('Thông tin sả phẩm:', this.sanPham);
+    }, (error: any) => {
+      console.error('Lỗi khi tải thông tin sản phẩm:', error);
     });
   }
 
   themsach() {
-    this.service.themSach(this.Sach) // Sử dụng this.Sach thay vì this.book
-      .subscribe(response => {
-        console.log('Sách đã được thêm thành công!', response);
-        alert("Thêm thành công");
-        this.resetForm();
-      }, error => {
-        console.error('Lỗi khi thêm sách:', error);
-      });
+    this.service.themSach(this.sanPham).subscribe(response => {
+      console.log('Sản phẩm đã được thêm thành công!', response);
+      alert("Thêm thành công");
+      this.resetForm();
+    }, error => {
+      console.error('Lỗi khi thêm sản phẩm:', error);
+    });
   }
+
   suasach() {
-    if (!this.Sach.id) {
-      console.error('Không thể cập nhật sách, thiếu ID!');
+    if (!this.sanPham.id) {
+      console.error('Không thể cập nhật sản phẩm, thiếu ID!');
       return;
     }
 
-    const bookId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(this.Sach.id);
-
-    // Gửi dữ liệu dưới dạng JSON
-    this.service.suaSach(bookId, this.Sach) // Truyền this.Sach
-      .subscribe(response => {
-        console.log('Chỉnh sửa thành công!', response);
-        alert("Sửa thành công")
-        this.resetForm();
-      }, error => {
-        console.error('Lỗi khi cập nhật sách:', error);
-      });
+    this.service.suaSach(this.sanPham.id, this.sanPham).subscribe(response => {
+      console.log('Chỉnh sửa thành công!', response);
+      alert("Sửa thành công");
+      this.resetForm();
+    }, error => {
+      console.error('Lỗi khi cập nhật sản phẩm:', error);
+    });
   }
 
   resetForm() {
-    this.Sach = { id: 0, title: '', description: '', price: 0 };
-    this.isEditing = false
+    this.sanPham = { id: 0, title: '', description: '', price: 0 };
+    this.isEditing = false;
   }
 }

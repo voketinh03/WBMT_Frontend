@@ -1,61 +1,73 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../shared.service';
 import { ActivatedRoute } from '@angular/router';
 
-interface Books {
+interface SanPham {
   id: number;
-  title: string; // Đã sửa lỗi chính tả từ "tittle" thành "title"
-  description?: string; // Thuộc tính mô tả tùy chọn
+  title: string;
+  description?: string;
   price: number;
 }
+
 @Component({
   selector: 'app-ds-book',
   templateUrl: './ds-book.component.html',
-  styleUrl: './ds-book.component.css'
+  styleUrls: ['./ds-book.component.css']
 })
-
 export class DsBookComponent implements OnInit {
-  constructor(private service: SharedService, private route: ActivatedRoute) { }
-  DSSach: any;
-  book: any;
+  DSSach: SanPham[] = [];
+  SanPham: SanPham | null = null;
   dangThemSua: boolean = false;
-  titilemodal: any
+  titilemodal: string = '';
+
+  constructor(private service: SharedService, private route: ActivatedRoute) { }
+
   ngOnInit(): void {
-    this.taiLaiDSSach()
-  }
-  taiLaiDSSach() {
-    this.service.layDSSach().subscribe(data => {
-      this.DSSach = data;
-    })
-  }
-  chitietsach(book: any) {
-    this.titilemodal = "Chỉnh sửa sách";
-    this.book = book;
-    this.dangThemSua = true;
-  }
-  dong() {
-    this.dangThemSua = false;
-    this.taiLaiDSSach()
-  }
-  themsach() {
-    this.book = null;
-    this.dangThemSua = true;
-    this.titilemodal = "Thêm sách";
+    this.taiLaiDSSach();
+    console.log(this.taiLaiDSSach());
   }
 
-  xoasach(id: Books) {
-    this.service.xoaSach(id.id).subscribe(
-      response => {
-        alert('Xóa sách thành công!');
-        this.taiLaiDSSach(); // Tải lại danh sách sách sau khi xóa
+  taiLaiDSSach(): void {
+    this.service.layDSSach().subscribe(
+      data => {
+        this.DSSach = data;
       },
+      
       error => {
-        console.error('Lỗi khi xóa sách:', error);
+        console.error('Lỗi khi tải danh sách sản phẩm:', error);
       }
     );
+    
   }
 
+  chitietsach(SanPham: SanPham): void {
+    this.titilemodal = "Chỉnh sửa đơn hàng";
+    this.SanPham = SanPham;
+    this.dangThemSua = true;
+  }
 
+  dong(): void {
+    this.dangThemSua = false;
+    this.taiLaiDSSach();
+  }
+
+  themsach(): void {
+    this.SanPham = null;
+    this.dangThemSua = true;
+    this.titilemodal = "Thêm đơn hàng";
+  }
+
+  xoaSach(SanPham: SanPham): void {
+    if (SanPham && SanPham.id) {
+      this.service.xoaSach(SanPham.id).subscribe(
+        () => {
+          alert('Xóa sách thành công!');
+          this.taiLaiDSSach();
+        },
+        error => {
+          console.error('Lỗi khi xóa sách:', error);
+        }
+      );
+    }
+  }
 }
-  
-

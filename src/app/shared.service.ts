@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-interface Book {
+interface SanPham {
   id: number;
   title: string;
   description?: string;
@@ -17,24 +17,23 @@ export class SharedService {
 
   constructor(private http: HttpClient) { }
 
-  layDSSach(): Observable<Book[]> { // Chỉnh sửa kiểu trả về để phù hợp
-    return this.http.get<Book[]>(this.APIUrl + '/Books');
+  layDSSach(): Observable<SanPham[]> {
+    return this.http.get<any[]>(`${this.APIUrl}/SanPham`);
   }
 
-  themSach(val: Book): Observable<any> {
-    return this.http.post<any>(this.APIUrl + '/Books', val);
+  themSach(val: SanPham): Observable<any> {
+    return this.http.post<any>(`${this.APIUrl}/SanPham`, val);
   }
 
-  suaSach(id: number, val: Book): Observable<Book> {
-    console.log(val.id)
-    return this.http.put<Book>(`${this.APIUrl}/Books/${val.id}`, val);
+  suaSach(id: number, val: SanPham): Observable<SanPham> {
+    return this.http.put<any>(`${this.APIUrl}/SanPham/${id}`, val);
   }
 
-  xoaSach(id: number): Observable<Book> {
-    return this.http.delete<Book>(`${this.APIUrl}/Books/${id}`); // Sửa URL để thêm dấu "/"
+  xoaSach(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.APIUrl}/SanPham/${id}`);
   }
 
-  getBookById(id: number): Observable<Book> {
-    return this.http.get<Book>(`${this.APIUrl}/Books/${id}`);
+  getSachById(id: number): Observable<SanPham> {
+    return this.http.get<SanPham>(`${this.APIUrl}/SanPham/${id}`);
   }
 }
