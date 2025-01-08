@@ -1,0 +1,87 @@
+/* Tổng quan footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f8f9fa;
+  padding: 30px 40px;
+  margin-top: 20px;
+  border-top: 2px solid #3388ff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Phần thông tin hỗ trợ */
+footer .support {
+  flex: 1;
+  font-size: 16px;
+  color: #333;
+}
+
+footer .support p {
+  margin: 8px 0;
+}
+
+footer .support p:first-child,
+footer .support p:nth-child(2),
+footer .support p:nth-child(3),
+footer .support p:nth-child(4) {
+  font-weight: bold;
+  color: #3388ff;
+}
+
+footer .support p:last-child {
+  color: #555;
+}
+
+/* Phần icon mạng xã hội */
+footer .social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+footer .social-icon img {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 50%;
+}
+
+footer .social-icon img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Zalo, Facebook, Instagram - tùy chỉnh icon */
+footer .social .social-icon {
+  text-decoration: none;
+  display: inline-block;
+}
+
+footer .social .social-icon img {
+  border: 2px solid #3388ff;
+  padding: 5px;
+  transition: border-color 0.3s ease;
+}
+
+footer .social .social-icon img:hover {
+  border-color: #0066cc;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 30px;
+  }
+
+  footer .support,
+  footer .social {
+    margin-bottom: 20px;
+  }
+
+  footer .social {
+    gap: 15px;
+  }
+}

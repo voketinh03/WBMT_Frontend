@@ -1,0 +1,171 @@
+/* Cấu trúc tổng thể */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cce1ff;
+    padding: 10px 20px;
+  }
+  
+  header .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  header .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  header .header-center input {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  header .header-center button {
+    padding: 5px 10px;
+  }
+  
+  header .header-right button {
+    margin-left: 10px;
+    padding: 5px 10px;
+  }
+  
+  /* Phần main với sidebar và nội dung chính */
+  main {
+    display: flex;
+    margin: 20px;
+  }
+  
+  aside {
+    width: 20%;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  aside ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  aside ul li {
+    margin: 10px 0;
+  }
+  
+  aside ul li a {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+  }
+  
+  /* CSS cho danh sách khách hàng */
+  section {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .customer-card {
+    background-color: #e6f3ff;
+    border: 2px solid #cce1ff;
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(50% - 20px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .customer-card h3 {
+    margin-top: 0;
+  }
+  
+  .customer-card p {
+    margin: 5px 0;
+  }
+  
+  /* Các nút chức năng */
+  .customer-card .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .customer-card button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .customer-card button:hover {
+    background-color: #0056b3;
+  }
+  
+  .customer-card button:nth-child(1) {
+    background-color: #007bff;
+  }
+  
+  .customer-card button:nth-child(2) {
+    background-color: #007bff;
+  }
+  
+  .customer-card button:nth-child(3) {
+    background-color: #007bff;
+  }
+  
+  .customer-card button:nth-child(4) {
+    background-color: #ff0000;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  footer .support p {
+    color: #3388ff;
+  }
+  
+  footer .social-icon img {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+  }
+  
+  footer .social-icon {
+    text-decoration: none;
+  }
+  
+  /* Định dạng bảng */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #cce1ff;
+  }
+  

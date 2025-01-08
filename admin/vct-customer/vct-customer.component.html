@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management</title>
+    
+</head>
+<body> 
+    <app-header></app-header>
+
+    <div class="navbar">
+        <ul class="tab-list">
+            <li><a routerLink="/admin-customer">Quản lý Khách hàng</a></li>
+        </ul>
+    </div>
+    <div class="customer-details">
+      <h1>Thông tin khách hàng</h1>
+      <form *ngIf=" customerData">
+          <div class="form-row">
+              <label for="id">ID Khách hàng:</label>
+              <input id="id" type="text" [value]="customerData.Id" readonly>
+          </div>
+          <div class="form-row">
+              <label for="userName">Tên:</label>
+              <input id="userName" type="text" [value]="customerData.UserName" readonly>
+          </div>
+          <div class="form-row">
+              <label for="email">Email:</label>
+              <input id="email" type="email" [value]="customerData.Email" readonly>
+          </div>
+          <div class="form-row">
+              <label for="phone">Số điện thoại:</label>
+              <input id="phone" type="text" [value]="customerData.Phone" readonly>
+          </div>
+          <div class="form-row">
+              <label for="address">Địa chỉ:</label>
+              <input id="address" type="text" [value]="customerData.Address" readonly>
+          </div>
+          <div class="form-row">
+              <label for="password">Mật khẩu:</label>
+              <input id="password" type="text" [value]="customerData.Password" readonly>
+          </div>
+      </form> 
+      <div *ngIf="!customerData">
+        <p>Đang tải thông tin khách hàng...</p>
+    </div>
+      <div class="form-actions">
+       
+        <a class="btn-back" [routerLink]="['/admin-customer']">Quay Lại</a>
+      </div>
+     
+  </div>
+  <app-footer></app-footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <app-header></app-header>
+    <div class="navbar">
+        <ul class="tab-list">
+            <li><a routerLink="/admin-customer">Quản lý Khách hàng</a></li>
+        </ul>
+    </div>
+    <div class="customer-list">
+        <div class="container">
+        <h1>Danh sách khách hàng</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Khách hàng</th>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa Chỉ</th>
+                    <!-- <th>Hành động</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Vòng lặp ngFor cho từng hàng khách hàng -->
+                <tr *ngFor="let customers of laythongtinn">
+                    <td>{{ customers.Id }}</td>
+                    <td>{{ customers.UserName }}</td>
+                    <td>{{ customers.Email }}</td>
+                    <td>{{ customers.Phone }}</td>
+                    <td>{{ customers.Address }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-actions">
+        <a class="btn-back" [routerLink]="['/admin-customer']">Quay Lại</a>
+    </div>
+    <app-footer></app-footer>
+</div>
+</body>
+</html>

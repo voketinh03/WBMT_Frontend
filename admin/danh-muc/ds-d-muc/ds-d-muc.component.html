@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thêm danh mục</title>
+  
+</head>
+
+<body>
+  <app-header></app-header>
+
+  <main>
+    <aside>
+      <ul>
+        <li><a routerLink="/admin-customer"> Quản lý khách hàng</a></li>
+        <li><a name="Pro" routerLink="/product">Quản lý sản phẩm  </a> </li>
+        <li><a routerLink="/ds-d-muc">Quản lý danh mục</a></li>
+        <li><a routerLink="#"> Quản lý đơn hàng</a></li>
+        
+      </ul>
+    </aside>
+
+      <!-- <app-them-sua-d-muc [dMuc]="dMuc" *ngIf="dangThemSua"></app-them-sua-d-muc> -->
+<table class="table table-striped">
+    <thead>
+      <th>Id danh mục </th>
+        <th>Tên danh mục</th>
+        <th>Mô tả</th>
+        <th>Trạng thái</th>
+        <th>Tuỳ chọn</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of DSDanhMuc">
+          <td>{{item.category_id}}</td>
+            <td>{{item.category_name}}</td>
+            <td>{{item.description}}</td>
+            <td></td>
+            <td>
+                <button style="color:bisque" type="button" class="btn btn-light mr-1" routerLink="/danhmuc/them-sua-d-muc">
+                    Thêm
+                </button>
+                <button style="color:aqua" type="button" class="btn btn-light mr-1" [routerLink]="['/sua-danh-muc', item.category_id]">
+                    Sửa
+                </button>
+                <button [routerLink]="['/vct-category', item.category_id]">
+                  X
+              </button>
+                <button style="color:red" type="button" class="btn btn-light mr-1" (click)="xoaDanhMuc(item)">
+                  Xoá
+              </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+          
+
+    
+     
+  </main>
+
+  <app-footer></app-footer>
+</body>
+</html>

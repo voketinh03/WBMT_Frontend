@@ -1,0 +1,17 @@
+<p style="margin: 5px 0px;">Tên sản phẩm</p>
+<input class="form-control" [(ngModel)]="sanPham.title" placeholder="Nhập tên sản phẩm">
+
+<p style="margin: 5px 0px;">Mô tả</p>
+<input class="form-control" [(ngModel)]="sanPham.description" placeholder="Nhập mô tả">
+
+<p style="margin: 5px 0px;">Giá tiền</p>
+<input class="form-control" type="number" [(ngModel)]="sanPham.price" placeholder="Nhập giá tiền">
+
+<div class="d-flex justify-content-end">
+  <button type="button" class="btn btn-dark" style="margin: 10px 0px;" (click)="themsach()" *ngIf="!SanPham">
+    Thêm sản phẩm
+  </button>
+  <button type="button" class="btn btn-dark" style="margin: 10px 0px;" (click)="suasach()" *ngIf="SanPham">
+    Cập nhật sản phẩm
+  </button>
+</div>
